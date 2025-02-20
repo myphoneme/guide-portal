@@ -4,6 +4,7 @@ import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { FaLightbulb } from "react-icons/fa";
 import { MdVerified } from "react-icons/md"; 
+import { Link } from "react-router-dom";
 
 
 function BlogLanding() {
@@ -19,8 +20,8 @@ function BlogLanding() {
                 <Form className={styles.inputContainer}>
                     <Form.Control type="text" placeholder="" className={styles.emailInput} />
                 </Form>
-                <Button className={styles.getStartedBtn}>Get Started</Button>
-                {/* <button className={styles.btnTornado}>Get Started</button> */}
+                {/* <Button to='/get-started' className={styles.getStartedBtn}>Get Started</Button> */}
+                <Link to="/get-started" className={styles.getStartedBtn}>Get Started</Link>
                 </Col>
             </Row>
         </Container>
