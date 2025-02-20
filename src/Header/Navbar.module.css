@@ -1,0 +1,19 @@
+.LandingContainer {
+    background-color:#f8f9fa;
+    padding: 10px;
+  }
+  
+  .NavLinks {
+    font-weight: bold;
+  }
+  
+  .ThemeToggle {
+    cursor: pointer;
+  }
+  
+  .ProfileImage {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  

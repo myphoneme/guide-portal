@@ -1,0 +1,50 @@
+.blogCard {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .bodyContent{
+    text-align: center;
+  }
+  .mainCardIn{
+     background-color: #fff;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     padding: 15px;
+     margin: 15px 0;
+  }
+
+  .blogTitle{
+    font-size: 30px;
+    padding: 10px 0;
+  }
+
+ /* Style for Tab Buttons */
+.navTabs {
+  border-bottom: none !important; 
+  display: flex !important;
+  justify-content: center !important; 
+  gap: 10px !important; }
+
+.navTabs .nav-item {
+  flex: 1 !important; 
+  text-align: center !important;
+}
+
+.navTabs {
+  background-color: #0a7c91!important; 
+  color: white !important; 
+  border: none !important; 
+  border-radius: 5px !important; 
+  padding: 10px 20px !important; 
+  font-weight: bold !important;
+}
+
+.navTabs .navLink.active {
+  background-color: #064f5a !important;
+  color: white;
+}
+
+
+.tabContent {
+  padding-top: 20px !important;
+}

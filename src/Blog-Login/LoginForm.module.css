@@ -1,0 +1,76 @@
+.background{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  url('https://www.10wallpaper.com/wallpaper/2560x1600/1606/Internet_Business_Technology_HD_Wallpaper_11_2560x1600.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.card {
+  padding: 20px;
+  border-radius: 15px;
+  /* background-color: #1A353D; */
+  background-color: #0A7A99;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.icon {
+  margin-right: 10px;
+  color: #070707;
+}
+
+.input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.button {
+  /* width: 100%; */
+  margin-top: 15px;
+  border-radius: 20px 0 20px 0;
+  padding: 5px 20px;
+  background-color: #fff!important;
+  color: #000!important;
+  border: 0!important;
+  margin: 10px;
+}
+
+.buttonAlt {
+  margin-top: 15px;
+  border-radius: 20px 0 20px 0;
+  padding: 5px 20px;
+  border: 1px solid #fff!important;
+  color: #ffffff!important;
+  margin: 10px;
+  background-color: transparent!important;
+}

@@ -1,0 +1,73 @@
+.profilePage {
+    padding: 20px;
+  }
+  
+  .leftSection {
+    border-right: 1px solid #ddd;
+  }
+  
+  .username {
+    font-size: 32px;
+    font-weight: bold;
+  }
+  
+  .navLinks {
+    margin: 20px 0;
+    border-bottom: 1px solid #ddd;
+
+  }
+  
+  .projectCard {
+    margin-top: 20px;
+  }
+  
+  .projectTitle {
+    font-weight: bold;
+  }
+  
+  .date {
+    color: #888;
+  }
+  
+  .icon {
+    float: right;
+    cursor: pointer;
+  }
+  
+  .rightSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profileInfo {
+    text-align: center;
+  }
+  
+  .profileImage {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  .profileName {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .editProfile {
+    color: green;
+    text-decoration: none;
+  }
+  .blogCon{
+    display: flex;
+    align-items: center;
+  }
+  .blogImg{
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 20px;
+  }
+  

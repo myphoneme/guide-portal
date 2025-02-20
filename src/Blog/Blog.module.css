@@ -1,0 +1,194 @@
+@import url('<link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">');
+body{
+    font-family: "Inria Serif", serif!important;
+}
+.LandingContainer {
+    background: linear-gradient(to bottom, #0A7A99, #032933);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+  .welcomeText {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .inputContainer {
+    margin-bottom: 15px;
+  }
+  
+  .emailInput {
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid white!important;
+    background: none!important;
+  }
+  
+  .getStartedBtn {
+    background: white!important;
+    color: black!important;
+    font-weight: bold;
+    border-radius: 40px!important;
+    padding: 8px 40px!important;
+    border: none!important;
+  }
+  .contentMid{
+    margin: auto
+  }
+
+  /* .btnTornado {
+    background-color: #ffffff;
+    color: #030303;
+    padding: 8px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: tornado 1s infinite;
+}
+@keyframes tornado {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+} */
+  /*  */
+
+  .blogContainer {
+    padding: 50px 0;
+}
+
+.textSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.learnMoreBtn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.featureIcons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.iconBox h5 {
+    font-weight: bold;
+}
+
+.imageSection {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.mainImage {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.overlayBox {
+    position: absolute;
+    bottom: -40px;
+    left: 20px;
+    background-color: #1A353D;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.overlayBox h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.overlayBox p {
+    font-size: 0.9rem;
+}
+
+/*  */
+.btnTextReveal {
+    color: #000000;
+    background-color: #bdcfd8;
+    border-radius: 20px 0 20px 0!important;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.btnTextReveal:before {
+    content: "Hovered!";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background: #084c5e;
+    border-radius: 20px 0 20px 0;
+    transition: left 0.3s ease;
+}
+
+.btnTextReveal:hover:before {
+    left: 0;
+}
+.bgBack{
+    position: relative;
+}
+
+.imageBg{
+    position: absolute;
+    width: 400px;
+    height: 350px;
+    background-color: #084c5e;
+    top: 20%;
+    right: -30%;
+    z-index: -1;
+}
+

@@ -1,0 +1,99 @@
+
+.storyHeading {
+    display: flex;
+    align-items: center!important;
+    margin: 30px 0;
+    border-bottom: 4px solid #3333;
+}
+
+.storyButtonGroup {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin-left: 50px;
+}
+.storyWriteButton {
+    background-color: #0A7A99;
+    border: none;
+    border-radius: 20px 0 20px 0;
+}
+.storyImportButton {
+    border: 1px solid #0A7A99;
+    color: #0c0c0c;
+    background: none;
+    border-radius: 20px 0 20px 0;
+}
+
+.storyNavTabs {
+    margin-bottom: 15px;
+}
+
+
+.storyDraftTab, .storyPublishedTab {
+    border-radius: 5px;
+    padding: 5px 15px;
+    background-color: #1A353D;
+    color: #fff;
+    margin: 10px;
+}
+
+
+.storyCard {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    border: 0;
+}
+
+.storyImageCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.storyImage {
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    width: 80px;
+    height: 80px;
+}
+
+.storyTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.storyContent {
+    font-size: 14px;
+    color: #555;
+}
+
+.storyUpdatedText, 
+.storyPublishedText {
+    font-size: 12px;
+    font-weight: bold;
+    color: #07425a;
+    margin-right: 10px;
+}
+
+.storyButtonGroupBottom {
+    margin-top: 10px;
+}
+
+.storyEditButton {
+    background-color: #065c1a;
+    border: none;
+    width: 90px;
+    border-radius: 2px;
+    padding: 4px 10px;
+}
+
+.storyDeleteButton {
+    background-color: #cc0a1e;
+    border: none;
+    width: 90px;
+    margin-left: 10px;
+    border-radius: 2px;
+    padding: 4px 10px;
+}
