@@ -13,14 +13,9 @@ const ProfilePage = () => {
 
           <Nav className={styles.navLinks} activeKey="home">
             <Nav.Item>
-              <Nav.Link eventKey="home">Home</Nav.Link>
+              Yours Blogs
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="lists">Lists</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="about">About</Nav.Link>
-            </Nav.Item>
+            
           </Nav>
 
           <div className={styles.projectCard}>

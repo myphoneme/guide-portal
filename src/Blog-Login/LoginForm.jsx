@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./LoginForm.module.css"; 
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   return (
@@ -39,9 +40,9 @@ const LoginForm = () => {
                   <a href="/" className={styles.link}>Forgot Password?</a>
                 </div>
 
-                <Button className={styles.button}> Login</Button>
+                <Link to="/home"><Button className={styles.button}> Login</Button></Link>
 
-                <Button  className={styles.buttonAlt}> Sign in? </Button>
+                <Link to="/signup" ><Button  className={styles.buttonAlt}> Sign up </Button></Link>
               </Form>
             </Card.Body>
           </Card>

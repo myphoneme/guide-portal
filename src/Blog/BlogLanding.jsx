@@ -16,6 +16,7 @@ function BlogLanding() {
                 <h2 className={styles.welcomeText}>
                     Welcome to Our Tech Blog! Dive into the world of innovation, where we explore the latest trends in technology, software development, and digital transformation.
                 </h2>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus asperiores repellat quisquam unde obcaecati commodi natus culpa vel soluta velit sapiente, vitae itaque voluptatem illum, labore iste corrupti placeat totam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus asperiores repellat quisquam unde obcaecati commodi natus culpa vel soluta velit sapiente, vitae itaque voluptatem illum, labore iste corrupti placeat totam.</p>
                 <Col md={6} className={styles.contentMid}>
                 <Form className={styles.inputContainer}>
                     <Form.Control type="text" placeholder="" className={styles.emailInput} />

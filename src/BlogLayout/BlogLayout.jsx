@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, Button, Form, ListGroup, Badge } from "react-bootstrap";
 import styles from "./BlogLayout.module.css";
+import { Link } from "react-router-dom";
 
 const BlogLayout = () => {
   return (
@@ -26,7 +27,7 @@ const BlogLayout = () => {
                 with modern websites. In fact, a significant number of web designers—about 93%—are already utilizing AI
                 to...
               </Card.Text>
-              <Button variant="primary">Read More</Button>
+              <Link to="/detail "><Button variant="primary">Read More</Button></Link>
             </Card.Body>
             <Card.Footer className={styles.blogAuthor}>
               <img

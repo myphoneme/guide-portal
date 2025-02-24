@@ -17,10 +17,7 @@ import SignupForm from './Singup/SingupForm'
 
 
 const router = createBrowserRouter([
-  // {
-  //   path: "/",
-  //   element: <Login />,
-  // },
+  
   // {
   //   path: "/signup",
   //   element: <SignupForm/>,
@@ -30,12 +27,38 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <BlogLanding />  // Or another homepage component
+        element: <BlogLanding /> 
       },
       {
         path: '/get-started',
-        element: <BlogLayout />
+        element: <LoginForm />
+      },
+      {
+        path: "login",
+        element: <LoginForm />,
+      },
+      {
+        path: "signup",
+        element: <SignupForm />,
+      },
+      {
+        path: "home",
+        element: <BlogLayout />,
+      },
+      {
+        path: "profile",
+        element: <ProfilePage/>
+      },
+      {
+        path: "detail",
+        element: <TabSection/>
+      },
+      {
+        path: "list",
+        element: <BlogList/>
       }
+
+
       
      
     ]
