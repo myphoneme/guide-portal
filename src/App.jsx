@@ -13,6 +13,8 @@ import TabSection from './Tab/TabSection'
 import LoginForm from './Blog-Login/LoginForm'
 import ProfilePage from './Profile/ProfilePage'
 import SignupForm from './Singup/SingupForm'
+import EditBlog from './EditBlog/EditBlog'
+import CreateBlog from './CreateBlog/CreateBlog';
 
 
 
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
       {
         path: "list",
         element: <BlogList/>
+      },
+      {
+        path: "editblog",
+        element: <EditBlog/>
+      },
+      {
+        path: "createblog",
+        element: <CreateBlog/>
       }
 
 
