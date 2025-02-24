@@ -15,6 +15,7 @@ import ProfilePage from './Profile/ProfilePage'
 import SignupForm from './Singup/SingupForm'
 import EditBlog from './EditBlog/EditBlog'
 import CreateBlog from './CreateBlog/CreateBlog';
+import AboutPage from './About/AboutPage';
 
 
 
@@ -66,7 +67,13 @@ const router = createBrowserRouter([
       {
         path: "createblog",
         element: <CreateBlog/>
+      },
+      {
+        path: "about",
+        element: <AboutPage/>
       }
+      
+
 
 
       
