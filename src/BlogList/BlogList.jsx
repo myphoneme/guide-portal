@@ -7,7 +7,6 @@ function BlogList() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
-    const [selectedPost, setSelectedPost] = useState(null);
 
     useEffect(() => {
         fetchPosts();
@@ -30,11 +29,11 @@ function BlogList() {
     const handleClose = () => setShowModal(false);
 
     const handleEdit = (post) => {
-        setSelectedPost(post); 
-        handleShow();
+        console.log("Edit post:", post);
     };
+
     const handleDelete = (id) => {
-        
+        console.log("Delete post with ID:", id);
     };
 
     return (
@@ -80,7 +79,11 @@ function BlogList() {
                 <p>No posts available.</p>
             )}
 
-            <CreateBlog  handleShow={handleShow} handleClose={handleClose} showModal={showModal} selectedPost={selectedPost} />
+            <CreateBlog 
+                handleShow={handleShow} 
+                handleClose={handleClose} 
+                showModal={showModal} 
+            />
         </Container>
     );
 }

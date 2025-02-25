@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import styles from './CreateBlog.module.css'; 
+import styles from './CreateBlog.module.css';
 
 function CreateBlog({ showModal, handleClose }) {
   const [categories, setCategories] = useState([]);
+  const [formData, setFormData] = useState({
+    category: '',
+    title: '',
+    body: '',
+    image: null,
+  });
 
   useEffect(() => {
     fetch('http://fastapi.phoneme.in/categories')
@@ -14,22 +20,53 @@ function CreateBlog({ showModal, handleClose }) {
       .catch((error) => console.error('Error fetching categories:', error));
   }, []);
 
+  const handleQuillChange = (value) => {
+    setFormData({ ...formData, body: value });
+  };
+
+  const handleCategoryChange = (e) => {
+    setFormData({ ...formData, category: e.target.value });
+  };
+
+  const handleTitleChange = (e) => {
+    setFormData({ ...formData, title: e.target.value });
+  };
+
+  const handleImageChange = (e) => {
+    setFormData({ ...formData, image: e.target.files[0] });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission for creating a new blog (save as draft or publish)
+    console.log('Form data submitted:', formData);
+    // You can later implement your save and publish logic here
+    handleClose(); // Close the modal after submission
+  };
+
   return (
     <Modal
       show={showModal}
       onHide={handleClose}
-      size="lg" 
-      centered 
-      dialogClassName={styles.modalContent} 
+      size="lg"
+      centered
+      dialogClassName={styles.modalContent}
     >
       <Modal.Header closeButton className={styles.modalHeader}>
         <Modal.Title className={styles.modalTitle}>Create Blog</Modal.Title>
       </Modal.Header>
       <Modal.Body className={styles.modalBody}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
             <label><b>Category:</b></label>
-            <select id="category" name="category" required className={styles.formControl}>
+            <select
+              id="category"
+              name="category"
+              required
+              className={styles.formControl}
+              value={formData.category} // Make sure category is selected
+              onChange={handleCategoryChange}
+            >
               <option value="">Select Category</option>
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
@@ -44,15 +81,24 @@ function CreateBlog({ showModal, handleClose }) {
             <input
               type="text"
               placeholder="Enter Post Title"
-              name="post"
+              name="title"
               required
               className={styles.formControl}
+              value={formData.title} // Make sure title is prefilled
+              onChange={handleTitleChange}
             />
           </div>
 
           <div className={styles.formGroup}>
             <label><b>Body:</b></label>
-            <ReactQuill theme="snow" placeholder="Enter Post Description" required className={styles.formControl} />
+            <ReactQuill
+              theme="snow"
+              placeholder="Enter Post Description"
+              required
+              className={styles.formControl}
+              value={formData.body} // Quill editor will be prefilled with body
+              onChange={handleQuillChange}
+            />
           </div>
 
           <div className={styles.formGroup}>
@@ -61,14 +107,12 @@ function CreateBlog({ showModal, handleClose }) {
               type="file"
               name="image"
               accept="image/*"
-              required
+              onChange={handleImageChange}
               className={styles.formControlFile}
             />
           </div>
-        </form>
-      </Modal.Body>
-      <Modal.Footer>
-      <div className={styles.buttonGroup}>
+
+          <div className={styles.buttonGroup}>
             <Button
               variant="primary"
               size="lg"
@@ -86,7 +130,8 @@ function CreateBlog({ showModal, handleClose }) {
               Publish Blog
             </Button>
           </div>
-      </Modal.Footer>
+        </form>
+      </Modal.Body>
     </Modal>
   );
 }
