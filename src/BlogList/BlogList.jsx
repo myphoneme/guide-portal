@@ -12,7 +12,7 @@ function BlogList() {
     useEffect(() => {
         fetchPosts();
     }, []);
-
+ 
     const fetchPosts = () => {
         fetch("http://fastapi.phoneme.in/posts")
             .then(response => response.json())
