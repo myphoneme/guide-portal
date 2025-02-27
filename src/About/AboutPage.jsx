@@ -11,24 +11,22 @@ function AboutPage() {
       <Row className="align-items-center">
         {/* Text Content */}
         <Col md={6}>
-          <h2 className={styles.heading}>Lorem ispum dolor</h2>
+          <h2 className={styles.heading}>About Us</h2>
           <p className={styles.description}>
-            Facilisi sed ultrices fringilla nec nisl est faucibus augue enim, lobortis cras
-            leo consectetur pellentesque at cras ut quis mattis elit ut nam placerat.
+          Founded by IITian's,with the objective of making the technologies friendly to human beings . The company’s main objective is to reach masses and especially in the developing nations where internet and literacy are the major challenge.
           </p>
           <ul className={styles.list}>
-            <li><FaCheck className={styles.icon} /> Pellentesque nulla at pharetra</li>
-            <li><FaCheck className={styles.icon} /> Magna morbi aenean vel convallis</li>
-            <li><FaCheck className={styles.icon} /> Tempus vitae bibendum venenatis pulvinar</li>
-            <li><FaCheck className={styles.icon} /> Lectus erat pharetra ultrices aliquet</li>
+            <li><FaCheck className={styles.icon} /> Innovate … Not just execute but do something new which creates some standard in the industry.</li>
+            <li><FaCheck className={styles.icon} /> Don’t do business, just to make short term gains, but do business so that overall industry gains.</li>
+            <li><FaCheck className={styles.icon} /> Integrity is the most precious value and always do things which is right and only right. </li>
+            <li><FaCheck className={styles.icon} /> Know the Facts. Good data helps you make the right decisions. Know before you decide.</li>
           </ul>
           <hr />
           {/* Quote */}
           <blockquote className={styles.quote}>
-            "Tortor potenti sed aliquet feugiat integer dolor vulputate ultrices et semper tellus pretium justo, 
-            suscipit sollicitudin erat massa euismod ac."
+            "For initial years , main thrust is over the Voice as it the most widely used channel over the phone and then over a period of time these technologies will make roads even into the Mobile Apps and embedded devices."
           </blockquote>
-          <p className={styles.author}>John Smith</p>
+          {/* <p className={styles.author}>John Smith</p> */}
         </Col>
 
         {/* Image Section */}
@@ -47,15 +45,21 @@ function AboutPage() {
       {/* Featured Section */}
       <Container fluid className={styles.featuredContainer}>
         <div className={styles.header}>
-          <h2>LOREM IPSUM</h2>
-          <p>Printing and Typesetting</p>
+          <h2>What we do offer</h2>
+          <p>Services</p>
         </div>
         <Row className={styles.imageRow}>
           <Col md={4} className={styles.imageCol}>
-            <h5>Remaining Essentially Unchanged.</h5>
+            {/* <h5>Remaining Essentially Unchanged.</h5>
             <p>It is a long established fact that a reader</p>
             <Image
-              src="https://getwallpapers.com/wallpaper/full/2/d/f/490230.jpg"alt="Blog Image" className={styles.image}  />
+              src="https://getwallpapers.com/wallpaper/full/2/d/f/490230.jpg"alt="Blog Image" className={styles.image}  /> */}
+
+            <div class="icon-box" >
+              <div class="icon m-auto"><i class="fa-solid fa-computer"></i></div>
+              <h4 class="title pt-3">Custom Software Development</h4>
+              <p class="description">From conceptualization to deployment, we build custom software that drives efficiency, scalability, and growth.</p>
+            </div>
            
           </Col>
           <Col md={4} className={styles.imageCol}>

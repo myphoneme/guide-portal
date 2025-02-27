@@ -3,6 +3,8 @@ import { Button, Modal } from 'react-bootstrap';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import styles from './CreateBlog.module.css';
+import { CKEditor, useCKEditorCloud } from '@ckeditor/ckeditor5-react';
+
 
 function CreateBlog({ showModal, handleClose }) {
   const [categories, setCategories] = useState([]);
@@ -43,6 +45,30 @@ function CreateBlog({ showModal, handleClose }) {
     // You can later implement your save and publish logic here
     handleClose(); // Close the modal after submission
   };
+
+
+  const cloud = useCKEditorCloud( {
+    version: '44.2.1',
+    premium: true
+} );
+
+if ( cloud.status === 'error' ) {
+    return <div>Error!</div>;
+}
+
+if ( cloud.status === 'loading' ) {
+    return <div>Loading...</div>;
+}
+
+const {
+    ClassicEditor,
+    Essentials,
+    Paragraph,
+    Bold,
+    Italic
+} = cloud.CKEditor;
+
+const { FormatPainter } = cloud.CKEditorPremiumFeatures;
 
   return (
     <Modal
@@ -91,13 +117,23 @@ function CreateBlog({ showModal, handleClose }) {
 
           <div className={styles.formGroup}>
             <label><b>Body:</b></label>
-            <ReactQuill
+            {/* <ReactQuill
               theme="snow"
               placeholder="Enter Post Description"
               required
               className={styles.formControl}
               value={formData.body} // Quill editor will be prefilled with body
               onChange={handleQuillChange}
+            /> */}
+
+            <CKEditor
+            editor={ ClassicEditor }
+            data={ '<p>Hello world!</p>' }
+            config={ {
+                licenseKey: '<YOUR_LICENSE_KEY>',
+                plugins: [ Essentials, Paragraph, Bold, Italic, FormatPainter ],
+                toolbar: [ 'undo', 'redo', '|', 'bold', 'italic', '|', 'formatPainter' ]
+            } }
             />
           </div>
 
@@ -113,20 +149,20 @@ function CreateBlog({ showModal, handleClose }) {
           </div>
 
           <div className={styles.buttonGroup}>
-            <Button
-              variant="primary"
-              size="lg"
-              type="submit"
-              className={`${styles.button} ${styles.buttonPrimary}`}
-            >
-              Save as Draft
-            </Button>
-            <Button
-              variant="success"
-              size="lg"
-              type="submit"
-              className={`${styles.button} ${styles.buttonSuccess}`}
-            >
+          <Button
+          variant="primary"
+          size="lg"
+          type="submit"
+          className={`${styles.button} ${styles.buttonPrimary}`} 
+          >
+          Save as Draft
+        </Button>
+         <Button
+         variant="success"
+         size="lg"
+         type="submit"
+         className={`${styles.button} ${styles.buttonSuccess}`}
+        >
               Publish Blog
             </Button>
           </div>
