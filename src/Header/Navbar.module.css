@@ -5,6 +5,9 @@
   
   .NavLinks {
     font-weight: bold;
+    color: black;
+    padding: 0 5px;
+    text-decoration: none;
   }
   
   .ThemeToggle {

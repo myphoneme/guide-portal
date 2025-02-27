@@ -20,9 +20,10 @@ const BlogNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
             {/* <Nav.Link href="#" className={styles.NavLinks}>Write</Nav.Link> */}
-            <Nav.Link href="#" className={styles.NavLinks}>About</Nav.Link>
+            {/* <Nav.Link href="#" className={styles.NavLinks}>About</Nav.Link> */}
             {/* <Nav.Link to="/login" href="#" className={styles.NavLinks}>Login</Nav.Link> */}
-            <Link to="/login">login</Link>
+            <Link to="/about" className={styles.NavLinks}>About</Link>
+            <Link to="/login" className={styles.NavLinks}>login</Link>
             <Nav.Link onClick={toggleTheme} className={styles.ThemeToggle}>
               {darkMode ? <BsMoon size={20} /> : <BsSun size={20} />}
             </Nav.Link>

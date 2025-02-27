@@ -1,7 +1,9 @@
+
 .blogCard {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
+    margin: auto;
   }
   .bodyContent{
     text-align: center;
@@ -14,8 +16,21 @@
   }
 
   .blogTitle{
-    font-size: 30px;
+    font-size: 50px;
     padding: 10px 0;
+  }
+  .titleCard{
+    color: #504e4e;
+  }
+  .headMain{
+    margin: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #b8b7b7;
+    font-size: 30px;
+    color: #353535;
+  }
+  .cardBody{
+    margin-top: 70px;
   }
 
  /* Style for Tab Buttons */
