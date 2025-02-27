@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styles from "./BlogList.module.css";
 import { Button, Card, Container, Row, Col, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; 
+import styles from "./BlogList.module.css";
 import CreateBlog from '../CreateBlog/CreateBlog';
 
 function BlogList() {
@@ -58,23 +59,26 @@ function BlogList() {
             ) : posts.length > 0 ? (
                 posts.map(post => (
                     <Card key={post.id} className={styles.storyCard}>
-                        <Row>
-                            <Col xs={2} md={2} className={styles.storyImageCol}>
-                                <img src={`http://fastapi.phoneme.in/${post.image}`} alt="Story" className={styles.storyImage} />
-                            </Col>
-                            <Col>
-                                <h5 className={styles.storyTitle}>{post.title}</h5>
-                                <p className={styles.storyContent}>{post.post}</p>
-                                <small className={styles.storyUpdatedText}>Created Time: {post.created_at}</small>
-                                <small className={styles.storyPublishedText}>Author: {post.created_user.name}</small>
-                                <div className={styles.storyButtonGroupBottom}>
-                                    <Button className={styles.storyEditButton} onClick={() => handleEdit(post)}>Edit</Button>
-                                    <Button className={styles.storyDeleteButton} onClick={() => handleDelete(post.id)}>Delete</Button>
-                                </div>
-                            </Col>
-                        </Row>
+                      <Row>
+                        <Col xs={2} md={2} className={styles.storyImageCol}>
+                          <img src={`http://fastapi.phoneme.in/${post.image}`} alt="Story" className={styles.storyImage} />
+                        </Col>
+                        <Col>
+                          <h5 className={styles.storyTitle}>{post.title}</h5>
+                          <p className={styles.storyContent}>{post.post.substring(0, 200)}...</p>
+                          <small className={styles.storyUpdatedText}>Created Time: {post.created_at}</small>
+                          <small className={styles.storyPublishedText}>Author: {post.created_user.name}</small>
+                          <div className={styles.storyButtonGroupBottom}>
+                            <Button className={styles.storyEditButton} onClick={() => handleEdit(post)}>Edit</Button>
+                            <Button className={styles.storyDeleteButton} onClick={() => handleDelete(post.id)}>Delete</Button>
+                            <Link to={`/blog/${post.id}`}>
+                               <Button className={styles.storyReadMoreButton}>Read More</Button>
+                            </Link>
+                          </div>
+                        </Col>
+                      </Row>
                     </Card>
-                ))
+                  ))
             ) : (
                 <p>No posts available.</p>
             )}
