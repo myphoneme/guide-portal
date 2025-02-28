@@ -3,8 +3,6 @@ import { Button, Modal } from 'react-bootstrap';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import styles from './CreateBlog.module.css';
-import { CKEditor, useCKEditorCloud } from '@ckeditor/ckeditor5-react';
-
 
 function CreateBlog({ showModal, handleClose }) {
   const [categories, setCategories] = useState([]);
@@ -40,35 +38,10 @@ function CreateBlog({ showModal, handleClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission for creating a new blog (save as draft or publish)
     console.log('Form data submitted:', formData);
-    // You can later implement your save and publish logic here
-    handleClose(); // Close the modal after submission
+    handleClose(); 
   };
 
-
-  const cloud = useCKEditorCloud( {
-    version: '44.2.1',
-    premium: true
-} );
-
-if ( cloud.status === 'error' ) {
-    return <div>Error!</div>;
-}
-
-if ( cloud.status === 'loading' ) {
-    return <div>Loading...</div>;
-}
-
-const {
-    ClassicEditor,
-    Essentials,
-    Paragraph,
-    Bold,
-    Italic
-} = cloud.CKEditor;
-
-const { FormatPainter } = cloud.CKEditorPremiumFeatures;
 
   return (
     <Modal
@@ -90,7 +63,7 @@ const { FormatPainter } = cloud.CKEditorPremiumFeatures;
               name="category"
               required
               className={styles.formControl}
-              value={formData.category} // Make sure category is selected
+              value={formData.category} 
               onChange={handleCategoryChange}
             >
               <option value="">Select Category</option>
@@ -110,31 +83,22 @@ const { FormatPainter } = cloud.CKEditorPremiumFeatures;
               name="title"
               required
               className={styles.formControl}
-              value={formData.title} // Make sure title is prefilled
+              value={formData.title} 
               onChange={handleTitleChange}
             />
           </div>
 
           <div className={styles.formGroup}>
             <label><b>Body:</b></label>
-            {/* <ReactQuill
+            <ReactQuill
               theme="snow"
               placeholder="Enter Post Description"
               required
               className={styles.formControl}
-              value={formData.body} // Quill editor will be prefilled with body
+              value={formData.body} 
               onChange={handleQuillChange}
-            /> */}
-
-            <CKEditor
-            editor={ ClassicEditor }
-            data={ '<p>Hello world!</p>' }
-            config={ {
-                licenseKey: '<YOUR_LICENSE_KEY>',
-                plugins: [ Essentials, Paragraph, Bold, Italic, FormatPainter ],
-                toolbar: [ 'undo', 'redo', '|', 'bold', 'italic', '|', 'formatPainter' ]
-            } }
             />
+
           </div>
 
           <div className={styles.formGroup}>
