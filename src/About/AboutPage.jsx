@@ -55,10 +55,10 @@ function AboutPage() {
             <Image
               src="https://getwallpapers.com/wallpaper/full/2/d/f/490230.jpg"alt="Blog Image" className={styles.image}  /> */}
 
-            <div class="icon-box" >
-              <div class="icon m-auto"><i class="fa-solid fa-computer"></i></div>
-              <h4 class="title pt-3">Custom Software Development</h4>
-              <p class="description">From conceptualization to deployment, we build custom software that drives efficiency, scalability, and growth.</p>
+            <div className="icon-box" >
+              <div className="icon m-auto"><i className="fa-solid fa-computer"></i></div>
+              <h4 className="title pt-3">Custom Software Development</h4>
+              <p className="description">From conceptualization to deployment, we build custom software that drives efficiency, scalability, and growth.</p>
             </div>
            
           </Col>
