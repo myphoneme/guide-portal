@@ -43,7 +43,7 @@ function BlogList() {
                 <h3>Your Story</h3>
                 <div className={styles.storyButtonGroup}>
                     <Button className={styles.storyWriteButton} onClick={handleShow}>Write a Story</Button>
-                    <Button className={styles.storyImportButton}>Import a Story</Button>
+                    {/* <Button className={styles.storyImportButton}>Import a Story</Button> */}
                 </div>
             </div>
             <Nav defaultActiveKey="#published" className={styles.storyNavTabs}>

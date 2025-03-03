@@ -55,9 +55,10 @@
 .storyImage {
     border-radius: 50%;
     border: 2px solid #ddd;
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
 }
+
 
 .storyTitle {
     font-size: 18px;
@@ -93,6 +94,15 @@
     background-color: #cc0a1e;
     border: none;
     width: 90px;
+    margin-left: 10px;
+    border-radius: 2px;
+    padding: 4px 10px;
+}
+
+.storyReadMoreButton {
+    background-color: #727875;
+    border: none;
+    width: 100px;
     margin-left: 10px;
     border-radius: 2px;
     padding: 4px 10px;
