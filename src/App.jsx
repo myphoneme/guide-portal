@@ -18,6 +18,7 @@ import CreateBlog from './CreateBlog/CreateBlog';
 import AboutPage from './About/AboutPage';
 import TextEditor from './TextEditor/TextEditor';
 import { ThemeContext } from './Context/ThemeContext'
+import CreatingBlog from './CreateBlog/CreatingBlog';
 
 
 
@@ -81,8 +82,11 @@ const router = createBrowserRouter([
       {
         path: "texteditor",
         element: <TextEditor/>
+      },
+      {
+        path: "creatingblog",
+        element: <CreatingBlog/>
       }
-      
     ]
   }
 ])

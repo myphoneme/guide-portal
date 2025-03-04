@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import styles from './CreatingBlog.module.css';
 
-const CreateBlog = () => {
+const CreatingBlog = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [tags, setTags] = useState('');
@@ -64,4 +65,4 @@ const CreateBlog = () => {
   );
 };
 
-export default CreateBlog;
+export default CreatingBlog;

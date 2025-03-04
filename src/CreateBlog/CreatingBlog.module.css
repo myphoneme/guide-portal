@@ -1,0 +1,90 @@
+.modalContent {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modalHeader {
+    border-bottom: 3px solid #7979795f;
+    background-color: #0A7A99;
+    color: white;
+    padding: 5px 30px;
+    /* border-radius: 15px 15px 0 0; */
+  }
+  
+  .modalTitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .modalBody {
+    padding: 25px;
+  }
+  
+  .formGroup {
+    margin-bottom: 25px;
+  }
+  
+  .formControl {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    background-color: #f7f7f7;
+  }
+  
+  .formControlFile {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button {
+    width: 48%;
+    font-size: 14px;
+    /* padding: 14px;
+    border-radius: 10px; */
+    transition: all 0.3s ease;
+  }
+  
+  .button:hover {
+    transform: scale(1.05);
+  }
+  
+  .buttonPrimary {
+    background-color: #990609;
+    color: white;
+    border: none;
+  }
+  
+  .buttonPrimary:hover {
+    background-color: #9cb3e1;
+  }
+  
+  .buttonSecondary {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+  }
+  
+  .buttonSecondary:hover {
+    background-color: #999;
+  }
+  
+  .CreatePost{
+   align-items: center;
+  }
+  
+  .DraftButton{
+    background-color: #014611;
+    border: none;
+    
+  }
