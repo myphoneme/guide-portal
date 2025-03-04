@@ -87,6 +87,9 @@ function BlogList() {
                 handleShow={handleShow} 
                 handleClose={handleClose} 
                 showModal={showModal} 
+                fetchPosts={fetchPosts} 
+                posts={posts} 
+                setShowModal={setShowModal}
             />
         </Container>
     );

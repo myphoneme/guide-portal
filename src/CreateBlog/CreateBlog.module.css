@@ -1,69 +1,80 @@
-/* CreateBlog.module.css */
-
-/* Custom Modal Styling */
 .modalContent {
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .modalHeader {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 15px 20px;
-  }
-  
-  .modalTitle {
-    font-size: 24px;
-    font-weight: 600;
-  }
-  
-  .modalBody {
-    padding: 20px;
-  }
-  
-  .formGroup {
-    margin-bottom: 20px;
-  }
-  
-  .formControl {
-    border-radius: 8px;
-    padding: 12px;
-    font-size: 16px;
-  }
-  
-  .formControlFile {
-    padding: 5px;
-  }
-  
-  .buttonGroup {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .button {
-    border-radius: 8px;
-    padding: 12px 20px;
-    font-size: 16px;
-    width: 48%;
-  }
-  
-  .buttonPrimary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .buttonPrimary:hover {
-    opacity: 0.9;
-  }
-  
-  .buttonSuccess {
-    background-color: #28a745;
-    border-color: #28a745;
-  }
-  
-  .buttonSuccess:hover {
-    opacity: 0.9;
-  }
-  
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modalHeader {
+  border-bottom: 3px solid #7979795f;
+  background-color: #0A7A99;
+  color: white;
+  padding: 20px 30px;
+  /* border-radius: 15px 15px 0 0; */
+}
+
+.modalTitle {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modalBody {
+  padding: 25px;
+}
+
+.formGroup {
+  margin-bottom: 25px;
+}
+
+.formControl {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  background-color: #f7f7f7;
+}
+
+.formControlFile {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 48%;
+  font-size: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.buttonPrimary {
+  background-color: #0A7A99;
+  color: white;
+  border: none;
+}
+
+.buttonPrimary:hover {
+  background-color: #9cb3e1;
+}
+
+.buttonSecondary {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+}
+
+.buttonSecondary:hover {
+  background-color: #999;
+}
