@@ -1,39 +1,21 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState ,useEffect, useContext } from "react";
 import { Navbar, Nav, Container ,Dropdown} from "react-bootstrap";
-import { BsSun, BsMoon } from "react-icons/bs";
+import { IoMoon } from "react-icons/io5";
+import { HiSun } from "react-icons/hi";
 import styles from "./Navbar.module.css"; // Import CSS module
+import { ThemeContext } from '../Context/ThemeContext';
 
 import { NavLink } from "react-router-dom"; // Use NavLink instead of Link
 import DynamicModalLoginForm from "../Blog-Login/LoginForm";
 
 const BlogNavbar = () => {
-  const [darkMode, setDarkMode] = useState(() => 
-    localStorage.getItem("theme") === "dark");
+  const {theme,setTheme}=useContext(ThemeContext)
+  useEffect(()=>{
+    console.log("Theme",theme)
+},[])
 
 
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark-mode");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.classList.remove("dark-mode");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
-
-  
- 
-
-  const toggleTheme = () => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem("theme", newMode ? "dark" : "light");
-    document.body.classList.toggle("dark-mode", newMode);
-  };
-
-
-  const handleToggle = () => {
+const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
@@ -60,16 +42,18 @@ const BlogNavbar = () => {
             <Nav.Link as={NavLink} to="/about" className="nav-link"> About</Nav.Link>
 
             <Nav.Link href="#" onClick={handleShow} className={styles.NavLinks}>Login</Nav.Link>
-            <Nav.Link onClick={toggleTheme} className={styles.ThemeToggle}>
-              {darkMode ? <BsMoon size={20} /> : <BsSun size={20} />}
-            </Nav.Link>
+            <div>
+                {theme=='light' ? <IoMoon className='text-[50px] bg-slate-200 text-black p-1 rounded-full cursor-pointer' onClick={() => {setTheme('dark');localStorage.setItem('theme','dark')}} /> :
+                    <HiSun onClick={() => {setTheme('light');localStorage.setItem('theme','light')}} className='text-[50px] bg-slate-200 text-black p-1 rounded-full cursor-pointer' />}
+
+            </div>
             <Dropdown className="profile-dropdown">
             <Dropdown.Toggle as="div" id="profile-dropdown" className="profile-toggle">
               <img src="https://live.staticflickr.com/65535/52211184991_eee7c06a67.jpg" alt="Profile" className={styles.ProfileImage} />
               </Dropdown.Toggle>
              <Dropdown.Menu className="dropdown-menu-custom">
                 <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                <Dropdown.Item href="/Blog">Blogs</Dropdown.Item>
+                <Dropdown.Item href="/profile">Blogs</Dropdown.Item>
                 <Dropdown.Item href="/profile">Categories</Dropdown.Item>
                 <Dropdown.Item href="/profile">Comments</Dropdown.Item>
                 <Dropdown.Item href="/settings">Settings</Dropdown.Item>

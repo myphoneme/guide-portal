@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AppLayout from './ui/AppLayout';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -17,6 +17,7 @@ import EditBlog from './EditBlog/EditBlog'
 import CreateBlog from './CreateBlog/CreateBlog';
 import AboutPage from './About/AboutPage';
 import TextEditor from './TextEditor/TextEditor';
+import { ThemeContext } from './Context/ThemeContext'
 
 
 
@@ -82,19 +83,23 @@ const router = createBrowserRouter([
         element: <TextEditor/>
       }
       
-
-
-
-      
-     
     ]
   }
 ])
 
 
 function App() {
+  const [theme,setTheme] = useState('dark')
+useEffect(()=>{
+  setTheme(localStorage.getItem('theme')?localStorage.getItem('theme'):'dark')},[])
   return (
+    <ThemeContext.Provider value={{theme,setTheme}}>
+    <div
+  className={`${theme} ${theme === 'dark' ? 'bg-[#121212]' : ''} h-[100h]`}
+></div>
+
     <RouterProvider router={router}></RouterProvider>
+    </ThemeContext.Provider>
   )
 }
 export default App
