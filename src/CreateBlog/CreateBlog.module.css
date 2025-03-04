@@ -9,12 +9,12 @@
   border-bottom: 3px solid #7979795f;
   background-color: #0A7A99;
   color: white;
-  padding: 20px 30px;
+  padding: 5px 30px;
   /* border-radius: 15px 15px 0 0; */
 }
 
 .modalTitle {
-  font-size: 28px;
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -49,9 +49,9 @@
 
 .button {
   width: 48%;
-  font-size: 16px;
-  padding: 14px;
-  border-radius: 10px;
+  font-size: 14px;
+  /* padding: 14px;
+  border-radius: 10px; */
   transition: all 0.3s ease;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .buttonPrimary {
-  background-color: #0A7A99;
+  background-color: #990609;
   color: white;
   border: none;
 }
@@ -77,4 +77,14 @@
 
 .buttonSecondary:hover {
   background-color: #999;
+}
+
+.CreatePost{
+ align-items: center;
+}
+
+.DraftButton{
+  background-color: #014611;
+  border: none;
+  
 }
