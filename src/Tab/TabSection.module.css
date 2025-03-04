@@ -72,10 +72,15 @@
  .sidebarTab{
   margin: 25px 0;
   border-bottom: 1px solid #c4c3c3;
+  text-decoration: none;
 }
 
 .tabIn{
   padding: 5px 0;
+}
+.tabIn h5{
+  color: #272727!important;
+  font-weight: 600;
 }
 
 .relatedPostimg{

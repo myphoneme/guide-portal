@@ -26,7 +26,6 @@ function AboutPage() {
           <blockquote className={styles.quote}>
             "For initial years , main thrust is over the Voice as it the most widely used channel over the phone and then over a period of time these technologies will make roads even into the Mobile Apps and embedded devices."
           </blockquote>
-          {/* <p className={styles.author}>John Smith</p> */}
         </Col>
 
         {/* Image Section */}
@@ -43,42 +42,39 @@ function AboutPage() {
     </Container>
 
       {/* Featured Section */}
-      <Container fluid className={styles.featuredContainer}>
-        <div className={styles.header}>
+      <div className={styles.header}>
           <h2>What we do offer</h2>
           <p>Services</p>
-        </div>
+      </div>
+      <Container className={styles.featuredContainer}>
         <Row className={styles.imageRow}>
           <Col md={4} className={styles.imageCol}>
-            {/* <h5>Remaining Essentially Unchanged.</h5>
-            <p>It is a long established fact that a reader</p>
-            <Image
-              src="https://getwallpapers.com/wallpaper/full/2/d/f/490230.jpg"alt="Blog Image" className={styles.image}  /> */}
-
             <div className="icon-box" >
               <div className="icon m-auto"><i className="fa-solid fa-computer"></i></div>
               <h4 className="title pt-3">Custom Software Development</h4>
               <p className="description">From conceptualization to deployment, we build custom software that drives efficiency, scalability, and growth.</p>
+              <Image
+              src="https://getwallpapers.com/wallpaper/full/2/d/f/490230.jpg"alt="Blog Image" className={styles.image}  />
             </div>
            
           </Col>
           <Col md={4} className={styles.imageCol}>
-            <h5>Remaining Essentially Unchanged.</h5>
-            <p>It is a long established fact that a reader</p>
+            <h5>Web Development</h5>
+            <p>We create stunning, responsive websites that offer a seamless user experience across all devices.</p>
             <Image
               src="https://wallpapercave.com/wp/cb3jaMQ.jpg" alt="Technology Image" className={styles.image}/>
-           
           </Col>
           <Col md={4} className={styles.imageCol}>
-           <h5>Remaining Essentially Unchanged.</h5>
-            <p>It is a long established fact that a reader</p>
+           <h5>Data Centre Infra Solutions</h5>
+            <p>Customized High Availability Compute with NVME Storage For running Machine Learning and AI Solutions.</p>
             <Image
               src="https://getwallpapers.com/wallpaper/full/2/d/f/490230.jpg" alt="Global Tech Image" className={styles.image}/>
-            
           </Col>
         </Row>
       </Container>
 
+      <div className={styles.aboutDetail}> 
+      </div>
       {/* Blog Section */}
       <Container className={styles.blogContainer}>
         <Row className="align-items-center">
@@ -91,19 +87,9 @@ function AboutPage() {
             />
           </Col>
           <Col md={7} className={styles.blogText}>
-          <h2 className={styles.aboutHead}>ABOUT US </h2>
-            <h4>Lorem Ipsum is simply dummy text of the printing</h4>
+            <h4>Cloud Computing Services</h4>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book. It has survived not
-              only five centuries, but also the leap into electronic typesetting,
-              remaining essentially unchanged. It was popularised in the 1960s
-              with the release of Letraset sheets containing Lorem Ipsum passages,
-              and more recently with desktop publishing software like Aldus
-              PageMaker including versions of Lorem.
-            </p>
+            Our digital team comprises of people with over 15 years of experience in telecom and internet domain and have been thoroughly involved with the evolution of consumer engagements over various mobile channels as sms, voice, mobile internet, 3G etc. Thereby our team is equiped enough to form the Digital strategy with clients to acheive three overall objectives.</p>
           </Col>
         </Row>
       </Container>
@@ -112,18 +98,9 @@ function AboutPage() {
         <Row className="align-items-center">
           
           <Col md={7} className={styles.blogText}>
-          <h2 className={styles.aboutHead}>ABOUT US </h2>
-            <h4>Lorem Ipsum is simply dummy text of the printing</h4>
+            <h4>Digital Marketing Services</h4>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book. It has survived not
-              only five centuries, but also the leap into electronic typesetting,
-              remaining essentially unchanged. It was popularised in the 1960s
-              with the release of Letraset sheets containing Lorem Ipsum passages,
-              and more recently with desktop publishing software like Aldus
-              PageMaker including versions of Lorem.
+            We help marketers unlock new revenue by arming them with the technology and guidance they need to succeed in Digital marketing & SEO (Search Engine Optimization) Now even in the Digital space we enable our brands to interact with their consumers in more meaningful way thereby establishing long term engagements
             </p>
           </Col>
           <Col md={5}>
@@ -136,9 +113,6 @@ function AboutPage() {
           </Col>
         </Row>
       </Container>
-
-    
-
       
     </>
   );

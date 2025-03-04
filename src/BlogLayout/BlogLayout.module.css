@@ -1,60 +1,26 @@
 .storyImageCol {
     margin-bottom: 20px;
   }
-  
-  .blogCard {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: 0;
-  }
-  
-  .blogTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .blogDescription {
-    color: #555;
-  }
-  
-  .blogAuthor {
-    display: flex;
-    align-items: center;
-  }
-  
-  .authorAvatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .authorName {
-    font-weight: bold;
-    color: #333;
-  }
-  
   .sidebarCol {
     margin-top: 10px;
     margin-left: 50px;
   }
-  
-
   .category {
     color: #15688c;
     font-weight: bold;
   }
-  
   .timeRead {
     color: #777;
   }
-
   .mainTab{
-    padding: 8px 0;
+    padding: 8px ;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .mainTab:hover{
+    background-color: #085979;
+    color: #fff;
   }
   .badgeMain{
     padding: 5px 15px;
@@ -64,46 +30,48 @@
   .sidebarTab{
     margin: 25px 0;
     border-bottom: 1px solid #c4c3c3;
+    text-decoration: none;
   }
  .tabIn{
      padding: 5px 0;
   }
-  
+  .tabIn h5{
+    color: #272727!important;
+    font-weight: 600;
+  }
   /* ==============today========= */
   .cardContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
-    max-width: 700px;
+    max-width: 850px;
+    margin: 10px 0;
+    padding: 5px;
   }
-  
   .cardBody {
     flex: 1;
     padding: 16px;
   }
-  
   .header {
     font-size: 14px;
     color: #6c757d;
     margin-bottom: 8px;
   }
-  
   .title {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
   }
-  
   .description {
     font-size: 16px;
     color: #444;
     margin-bottom: 12px;
   }
-  
   .footer {
     display: flex;
     align-items: center;
@@ -111,17 +79,14 @@
     font-size: 14px;
     color: #666;
   }
-  
   .icon {
     display: flex;
     align-items: center;
     gap: 4px;
   }
-  
   .date {
     font-weight: bold;
   }
-  
   .image {
     width: 120px;
     height: 120px;
@@ -129,8 +94,11 @@
     border-left: 1px solid #ddd;
   }
  .categHead{
-  background-color: #dfdfdf; 
+  background-color: #e6e7e7; 
   padding:  10px;
+  margin: 10px 0;
+  color: #000000;
+  text-align: center;
  } 
 .catHead{
  border: 1px solid #dfdfdf;

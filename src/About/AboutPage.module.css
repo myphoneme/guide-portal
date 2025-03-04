@@ -1,6 +1,4 @@
-.aboutHead{
-    color: #1f7799;
-}
+
 .blogContainer {
     margin: 20px auto;
     padding: 20px;
@@ -18,7 +16,7 @@
     color: #333;
   }
   .featuredContainer {
-    padding: 40px 0;
+    padding-bottom: 30px;
     text-align: center;
   }
   
@@ -26,6 +24,7 @@
     margin-bottom: 30px;
     background-color: #f5f5f5;
     padding: 20px ;
+    text-align: center;
   }
   
   .header h2 {
@@ -124,5 +123,7 @@
     max-width: 350px;
     border-radius: 10px;
   }
-  
+  .aboutDetail{
+    border-top: 2px solid #d5d7d8;
+  }
     

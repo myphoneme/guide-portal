@@ -66,11 +66,9 @@ const TabSection = () => {
                 </div>
               </Col>
             </Col>
-
             <Col md={3} className={styles.cardBody}>
 
               {/* <div style={{ width: "18rem" }} className={styles.mainCardIn}>
-               
                 <Card.Body className={styles.bodyContent}>
                   <Card.Text>
                     <h5 className={styles.titleCard}>More Blogs</h5>
@@ -96,6 +94,7 @@ const TabSection = () => {
                   </Card.Text>
                 </Card.Body>
               </div> */}
+
               <div className={`${styles.sidebarCard} mt-3`}>
               <Card.Title className={styles.categHead}>Recent Posts</Card.Title>
               { relatedPosts.map((relatedPost) => (
