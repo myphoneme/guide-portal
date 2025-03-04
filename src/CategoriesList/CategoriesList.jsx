@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CategoriesList.css"; // Import the CSS file
+import styles from "./CategoriesList.module.css"; // Import the module CSS file
 
 const CategoriesList = () => {
   const [categories, setCategories] = useState([
@@ -33,19 +33,19 @@ const CategoriesList = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="title">Categories</h2>
-      <button className="add-button" onClick={handleAddCategory}>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Categories</h2>
+      <button className={styles.addButton} onClick={handleAddCategory}>
         Add Category
       </button>
-      <div className="table-wrapper">
-        <table className="table">
+      <div className={styles.tableWrapper}>
+        <table className={styles.table}>
           <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Description</th>
-              <th className="text-center">Actions</th>
+              <th className={styles.textCenter}>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -54,11 +54,11 @@ const CategoriesList = () => {
                 <td>{category.id}</td>
                 <td>{category.name}</td>
                 <td>{category.description}</td>
-                <td className="text-center">
-                  <button className="edit-button" onClick={() => handleEdit(category.id)}>
+                <td className={styles.textCenter}>
+                  <button className={styles.editButton} onClick={() => handleEdit(category.id)}>
                     Edit
                   </button>
-                  <button className="delete-button" onClick={() => handleDelete(category.id)}>
+                  <button className={styles.deleteButton} onClick={() => handleDelete(category.id)}>
                     Delete
                   </button>
                 </td>
