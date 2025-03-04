@@ -16,6 +16,7 @@ import SignupForm from './Singup/SingupForm'
 import EditBlog from './EditBlog/EditBlog'
 import CreateBlog from './CreateBlog/CreateBlog';
 import AboutPage from './About/AboutPage';
+import TextEditor from './TextEditor/TextEditor';
 
 
 
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
       {
         path: "/blog/:id",
         element: <TabSection />
+      },
+      {
+        path: "texteditor",
+        element: <TextEditor/>
       }
       
 

@@ -1,0 +1,114 @@
+/* Modal Header */
+.modalHeader {
+    background-color: #007bff;
+    color: white;
+    border-bottom: none;
+    padding: 15px;
+    font-size: 1.25rem;
+  }
+  
+  /* Modal Title */
+  .modalTitle {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  /* Modal Body */
+  .modalBody {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  /* Form Group */
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  /* Label Styling */
+  .formGroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Input Fields */
+  .formControl {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .formControl:focus {
+    border-color: #007bff;
+  }
+  
+  /* File Input */
+  .formControlFile {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  /* Button Group */
+  .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Buttons */
+  .button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  /* Primary Button */
+  .buttonPrimary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .buttonPrimary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Success Button */
+  .buttonSuccess {
+    background-color: #28a745;
+    color: white;
+    border: none;
+  }
+  
+  .buttonSuccess:hover {
+    background-color: #218838;
+  }
+  
+  /* Open Modal Button */
+  .openButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .openButton:hover {
+    background-color: #0056b3;
+  }
+  
