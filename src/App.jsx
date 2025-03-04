@@ -19,6 +19,7 @@ import AboutPage from './About/AboutPage';
 import TextEditor from './TextEditor/TextEditor';
 import { ThemeContext } from './Context/ThemeContext'
 import CreatingBlog from './CreateBlog/CreatingBlog';
+import CategoriesList from './CategoriesList/CategoriesList';
 
 
 
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: "creatingblog",
         element: <CreatingBlog/>
+      },
+      {
+        path: "categorieslist",
+        element: <CategoriesList/>
       }
     ]
   }
