@@ -40,3 +40,42 @@
 .read-the-docs {
   color: #888;
 } */
+
+
+/* Default Light Mode */
+body.light {
+  background-color: white;
+  color: black;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212 !important;
+  color: white;
+}
+
+/* Navbar Styling */
+.navbar {
+  transition: background-color 0.3s ease-in-out;
+}
+
+body.dark .navbar {
+  background-color: #222 !important;
+}
+
+body.light .navbar {
+  background-color: white !important;
+}
+
+/* Theme Toggle Icons */
+.text-white {
+  color: white !important;
+}
+
+.text-black {
+  color: black !important;
+}
+
+.profile-toggle::after {
+  display: none !important;
+}

@@ -9,14 +9,14 @@ import { NavLink } from "react-router-dom"; // Use NavLink instead of Link
 import DynamicModalLoginForm from "../Blog-Login/LoginForm";
 
 const BlogNavbar = () => {
-  const {theme,setTheme}=useContext(ThemeContext)
-  useEffect(()=>{
-    console.log("Theme",theme)
-},[])
+  const { theme, setTheme } = useContext(ThemeContext);
 
+  useEffect(() => {
+    console.log("Theme:", theme); // Logs every time theme changes
+  }, [theme]);
 
-const handleToggle = () => {
-    setIsOpen(!isOpen);
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -42,16 +42,29 @@ const handleToggle = () => {
             <Nav.Link as={NavLink} to="/about" className="nav-link"> About</Nav.Link>
 
             <Nav.Link href="#" onClick={handleShow} className={styles.NavLinks}>Login</Nav.Link>
+           
+            {/* Theme Toggle Button */}
             <div>
-                {theme=='light' ? <IoMoon className='text-[50px] bg-slate-200 text-black p-1 rounded-full cursor-pointer' onClick={() => {setTheme('dark');localStorage.setItem('theme','dark')}} /> :
-                    <HiSun onClick={() => {setTheme('light');localStorage.setItem('theme','light')}} className='text-[50px] bg-slate-200 text-black p-1 rounded-full cursor-pointer' />}
-
+              {theme === "light" ? (
+                <IoMoon
+                  size={30}
+                  className="bg-light text-dark p-2 rounded-circle cursor-pointer"
+                  onClick={toggleTheme}
+                />
+              ) : (
+                <HiSun
+                  size={30}
+                  className="bg-dark text-white p-2 rounded-circle cursor-pointer"
+                  onClick={toggleTheme}
+                />
+              )}
             </div>
+
             <Dropdown className="profile-dropdown">
-            <Dropdown.Toggle as="div" id="profile-dropdown" className="profile-toggle">
-              <img src="https://live.staticflickr.com/65535/52211184991_eee7c06a67.jpg" alt="Profile" className={styles.ProfileImage} />
+              <Dropdown.Toggle as="div" id="profile-dropdown"    className="profile-toggle">
+                <img src="https://live.staticflickr.com/65535/52211184991_eee7c06a67.jpg" alt="Profile" className={styles.ProfileImage} />
               </Dropdown.Toggle>
-             <Dropdown.Menu className="dropdown-menu-custom">
+              <Dropdown.Menu className="dropdown-menu-custom">
                 <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                 <Dropdown.Item href="/profile">Blogs</Dropdown.Item>
                 <Dropdown.Item href="/profile">Categories</Dropdown.Item>
@@ -60,7 +73,6 @@ const handleToggle = () => {
                 <Dropdown.Item href="/logout" className="logout-item">Logout</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            
             
           </Nav>
         </Navbar.Collapse>

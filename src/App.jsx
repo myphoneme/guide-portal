@@ -98,17 +98,20 @@ const router = createBrowserRouter([
 
 
 function App() {
-  const [theme,setTheme] = useState('dark')
-useEffect(()=>{
-  setTheme(localStorage.getItem('theme')?localStorage.getItem('theme'):'dark')},[])
-  return (
-    <ThemeContext.Provider value={{theme,setTheme}}>
-    <div
-  className={`${theme} ${theme === 'dark' ? 'bg-[#121212]' : ''} h-[100h]`}
-></div>
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
-    <RouterProvider router={router}></RouterProvider>
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.body.className = theme; // Apply theme class to body
+  }, [theme]);
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={`${theme} min-h-screen ${theme === 'dark' ? 'bg-[#121212] text-white' : 'bg-white text-black'}`}>
+        <RouterProvider router={router} />
+      </div>
     </ThemeContext.Provider>
+    
   )
 }
 export default App
