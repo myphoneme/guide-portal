@@ -33,50 +33,54 @@ export default function EditProfile() {
   return (
     <div className={styles.fullScreenContainer}>
       <h2 className={styles.profileTitle}>Edit Profile</h2>
-      <div className={styles.photoContainer}>
-        {profile.photo ? (
-          <img src={profile.photo} alt="Profile" className={styles.profilePhoto} />
-        ) : (
-          <div className={styles.photoPlaceholder}>No Photo</div>
-        )}
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>Upload Photo</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handlePhotoChange} />
-        </Form.Group>
+      <div className={styles.profileMain}>
+          <div className={styles.photoContainer}>
+            {profile.photo ? (
+              <img src='https://img.freepik.com/free-photo/lifestyle-people-office_23-2149173747.jpg?semt=ais_hybrid' alt="Profile" className={styles.profilePhoto} />
+            ) : (
+              <div className={styles.photoPlaceholder}>No Photo</div>
+            )}
+            <Form.Group className={styles.formGroup}>
+              <Form.Label>Upload Photo</Form.Label>
+              <Form.Control type="file" accept="image/*" onChange={handlePhotoChange} />
+            </Form.Group>
+          </div>
+          <div >
+            <Form className={styles.fullScreenForm}>
+              <Form.Group className={styles.formGroup}>
+                <Form.Label>Name</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  name="name" 
+                  placeholder="Enter name" 
+                  value={profile.name} 
+                  onChange={handleChange} 
+                />
+              </Form.Group>
+              <Form.Group className={styles.formGroup}>
+                <Form.Label>Email</Form.Label>
+                <Form.Control 
+                  type="email" 
+                  name="email" 
+                  placeholder="Enter email" 
+                  value={profile.email} 
+                  onChange={handleChange} 
+                />
+              </Form.Group>
+              <Form.Group className={styles.formGroup}>
+                <Form.Label>Password</Form.Label>
+                <Form.Control 
+                  type="password" 
+                  name="password" 
+                  placeholder="Enter password" 
+                  value={profile.password} 
+                  onChange={handleChange} 
+                />
+              </Form.Group>
+              <Button  onClick={handleSubmit} className={styles.saveButton}>Save</Button>
+            </Form>
+          </div>
       </div>
-      <Form className={styles.fullScreenForm}>
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>Name</Form.Label>
-          <Form.Control 
-            type="text" 
-            name="name" 
-            placeholder="Enter name" 
-            value={profile.name} 
-            onChange={handleChange} 
-          />
-        </Form.Group>
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>Email</Form.Label>
-          <Form.Control 
-            type="email" 
-            name="email" 
-            placeholder="Enter email" 
-            value={profile.email} 
-            onChange={handleChange} 
-          />
-        </Form.Group>
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>Password</Form.Label>
-          <Form.Control 
-            type="password" 
-            name="password" 
-            placeholder="Enter password" 
-            value={profile.password} 
-            onChange={handleChange} 
-          />
-        </Form.Group>
-        <Button variant="primary" onClick={handleSubmit} className={styles.saveButton}>Save</Button>
-      </Form>
     </div>
   );
 }
