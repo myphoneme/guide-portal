@@ -1,90 +1,55 @@
-.modalContent {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .modalHeader {
-    border-bottom: 3px solid #7979795f;
-    background-color: #0A7A99;
-    color: white;
-    padding: 5px 30px;
-    /* border-radius: 15px 15px 0 0; */
-  }
-  
-  .modalTitle {
-    font-size: 22px;
-    font-weight: bold;
-  }
-  
-  .modalBody {
-    padding: 25px;
-  }
-  
-  .formGroup {
-    margin-bottom: 25px;
-  }
-  
-  .formControl {
-    width: 100%;
-    padding: 15px;
+.container {
+    max-width: 800px;
+    background-color: #f8f9fa;
+    padding: 20px;
     border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    background-color: #f7f7f7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .formControlFile {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
   }
   
-  .buttonGroup {
+  .form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
   }
   
-  .button {
-    width: 48%;
-    font-size: 14px;
-    /* padding: 14px;
-    border-radius: 10px; */
-    transition: all 0.3s ease;
+  .input,
+  .textarea {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+  }
+  
+  .Draftbutton {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    margin: 0 5px;
+    background-color: #940606;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .Publishbutton {
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0 5px;
+    background-color: #035a2c;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
   }
   
   .button:hover {
-    transform: scale(1.05);
+    background-color: #0056b3;
   }
-  
-  .buttonPrimary {
-    background-color: #990609;
-    color: white;
-    border: none;
-  }
-  
-  .buttonPrimary:hover {
-    background-color: #9cb3e1;
-  }
-  
-  .buttonSecondary {
-    background-color: #ccc;
-    color: #333;
-    border: none;
-  }
-  
-  .buttonSecondary:hover {
-    background-color: #999;
-  }
-  
-  .CreatePost{
-   align-items: center;
-  }
-  
-  .DraftButton{
-    background-color: #014611;
-    border: none;
-    
-  }
+  .EndButton{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }  
