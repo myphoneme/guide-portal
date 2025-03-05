@@ -1,45 +1,65 @@
-/* EditProfile.module.css */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa;
-  }
-  
-  .card {
-    width: 30rem;
-    padding: 2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background-color: white;
-  }
-  
-  .content {
+.fullScreenContainer {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5f5f5;
+    padding: 20px;
   }
   
-  .title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #343a40;
+  .profileTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
   }
   
-  .button {
+  .photoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profilePhoto {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .photoPlaceholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .fullScreenForm {
     width: 100%;
-    padding: 0.75rem;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #007bff;
-    border: none;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .button:hover {
-    background-color: #0056b3;
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  .saveButton {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
   }
   
