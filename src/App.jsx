@@ -1,7 +1,12 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AppLayout from './ui/AppLayout';
-import BlogLanding from './Blog/BlogLanding';
 import { useState , useEffect } from 'react';
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import BlogLanding from './Blog/BlogLanding';
+import BlogNavbar from './Header/BlogNavbar';
+import Footer from './Footer/Footer'
 import LoginForm from './Blog-Login/LoginForm';
 import SignupForm from './Singup/SingupForm';
 import BlogLayout from './BlogLayout/BlogLayout';

@@ -20,7 +20,7 @@ const BlogNavbar = () => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const[showLogin, setShowLogin] = useState(false);
+  const[showLogin, setShowLogin] = useState(false);         
 
   const handleShow = () => setShowLogin(true);
   const handleClose = () => setShowLogin(false);
