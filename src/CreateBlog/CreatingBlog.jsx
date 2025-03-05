@@ -1,17 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import JoditEditor from 'jodit-react';
 import styles from './CreatingBlog.module.css';
 
 const CreatingBlog = () => {
+  const { id } = useParams(); // Get post ID from URL
+  const navigate = useNavigate(); // Initialize navigate
   const editor = useRef(null);
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     title: '',
     post: '',
     category_id: '',
-    created_by: 1, // Assuming the user is already logged in, or you can dynamically set this
+    created_by: 1,
     image: null,
   });
 
@@ -20,7 +23,22 @@ const CreatingBlog = () => {
       .then(response => response.json())
       .then(data => setCategories(data))
       .catch(error => console.error('Error fetching categories:', error));
-  }, []);
+    
+    if (id) {
+      fetch(`http://fastapi.phoneme.in/posts/${id}`)
+        .then(response => response.json())
+        .then(data => {
+          setFormData({
+            title: data.title,
+            post: data.post,
+            category_id: data.category_id,
+            created_by: data.created_by,
+            image: null, 
+          });
+        })
+        .catch(error => console.error('Error fetching post for editing:', error));
+    }
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,33 +55,20 @@ const CreatingBlog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data you entered: ", formData);
-    
     const formDataToSend = new FormData();
     formDataToSend.append('title', formData.title);
     formDataToSend.append('post', formData.post);
     formDataToSend.append('category_id', formData.category_id);
-    formDataToSend.append('created_by', formData.created_by); // Add created_by here
-  
-    
-
-    // const formData = new FormData();
-    // formData.append("category_id", posts.category_id);
-    // formData.append("title", posts.title);
-    // formData.append("post", posts.post);
-    // formData.append("created_by", posts.created_by);
-    // formData.append("image", posts.image);
+    formDataToSend.append('created_by', formData.created_by);
 
     if (formData.image) {
       formDataToSend.append('image', formData.image);
     }
 
     try {
-      const response = await fetch('http://fastapi.phoneme.in/posts', {
-        method: 'POST',
-       body: formDataToSend,
-      //  headers:{"Content-Type":"application/json"},
-    //    body: formData,
+      const response = await fetch(id ? `http://fastapi.phoneme.in/posts/${id}` : 'http://fastapi.phoneme.in/posts', {
+        method: id ? 'PUT' : 'POST', 
+        body: formDataToSend,
       });
 
       if (!response.ok) {
@@ -72,6 +77,8 @@ const CreatingBlog = () => {
 
       const result = await response.json();
       console.log('Blog submitted successfully:', result);
+      
+      navigate('/list');
     } catch (error) {
       console.error('Error submitting blog:', error);
     }
@@ -79,7 +86,7 @@ const CreatingBlog = () => {
 
   return (
     <Container className={`mt-4 ${styles.container}`}>
-      <h2 className={styles.heading}>Create a Blog</h2>
+      <h2 className={styles.heading}>{id ? 'Edit Blog' : 'Create a Blog'}</h2>
       <Form onSubmit={handleSubmit} className={styles.form} encType="multipart/form-data">
         <Row className="mb-3">
           <Col md={6}>

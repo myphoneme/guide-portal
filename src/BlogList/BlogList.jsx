@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Container, Row, Col, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom';  
 import styles from "./BlogList.module.css";
-import CreateBlog from '../CreateBlog/CreateBlog';
 
 function BlogList() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchPosts();
     }, []);
- 
+
     const fetchPosts = () => {
         fetch("http://fastapi.phoneme.in/posts")
             .then(response => response.json())
@@ -26,15 +25,22 @@ function BlogList() {
             });
     };
 
-    const handleShow = () => setShowModal(true);
-    const handleClose = () => setShowModal(false);
-
-    const handleEdit = (post) => {
-        console.log("Edit post:", post);
-    };
-
     const handleDelete = (id) => {
         console.log("Delete post with ID:", id);
+        fetch(`http://fastapi.phoneme.in/posts/${id}`, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.ok) {
+                
+                setPosts(prevPosts => prevPosts.filter(post => post.id !== id));
+            } else {
+                console.error("Failed to delete post");
+            }
+        })
+        .catch(error => {
+            console.error("Error deleting post:", error);
+        });
     };
 
     return (
@@ -42,8 +48,7 @@ function BlogList() {
             <div className={styles.storyHeading}>
                 <h3>Your Story</h3>
                 <div className={styles.storyButtonGroup}>
-                    <Button className={styles.storyWriteButton} onClick={handleShow}>Write a Story</Button>
-                    {/* <Button className={styles.storyImportButton}>Import a Story</Button> */}
+                    <Button className={styles.storyWriteButton} onClick={() => navigate('/write')}>Write a Story</Button>
                 </div>
             </div>
             <Nav defaultActiveKey="#published" className={styles.storyNavTabs}>
@@ -69,7 +74,9 @@ function BlogList() {
                           <small className={styles.storyUpdatedText}>Created Time: {post.created_at}</small>
                           <small className={styles.storyPublishedText}>Author: {post.created_user.name}</small>
                           <div className={styles.storyButtonGroupBottom}>
-                            <Button className={styles.storyEditButton} onClick={() => handleEdit(post)}>Edit</Button>
+                            <Link to={`/creatingblog/${post.id}`}>
+                               <Button className={styles.storyEditButton}>Edit</Button>
+                            </Link>
                             <Button className={styles.storyDeleteButton} onClick={() => handleDelete(post.id)}>Delete</Button>
                             <Link to={`/blog/${post.id}`}>
                                <Button className={styles.storyReadMoreButton}>Read More</Button>
@@ -82,15 +89,6 @@ function BlogList() {
             ) : (
                 <p>No posts available.</p>
             )}
-
-            <CreateBlog 
-                handleShow={handleShow} 
-                handleClose={handleClose} 
-                showModal={showModal} 
-                fetchPosts={fetchPosts} 
-                posts={posts} 
-                setShowModal={setShowModal}
-            />
         </Container>
     );
 }
