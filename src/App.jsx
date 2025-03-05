@@ -20,6 +20,7 @@ import TextEditor from './TextEditor/TextEditor';
 import { ThemeContext } from './Context/ThemeContext'
 import CreatingBlog from './CreateBlog/CreatingBlog';
 import CategoriesList from './CategoriesList/CategoriesList';
+import EditProfile from './EditProfile/EditProfile';
 
 
 
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "categorieslist",
         element: <CategoriesList/>
+      },
+      {
+        path: "EditProfile",
+        element: <EditProfile/>
       }
     ]
   }
