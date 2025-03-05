@@ -1,84 +1,105 @@
 /* CategoriesList.module.css */
 .container {
-  width: 80%;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
+  height: 100vh;
+ 
 }
-
 .title {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
 }
-
-.addButton {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 20px;
-  display: block;
-  width: 200px;
-  margin: 0 auto;
-  font-size: 1rem;
-  border-radius: 5px;
-}
-
-.addButton:hover {
-  background-color: #45a049;
-}
-
-.tableWrapper {
-  overflow-x: auto;
-}
-
 .table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+  
 }
-
 .table th,
 .table td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
-
 .table th {
-  background-color: #f2f2f2;
+  background-color: #bdbdbd;
   font-weight: bold;
 }
-
 .textCenter {
-  text-align: center;
+  text-align: center!important;
 }
-
 .editButton,
 .deleteButton {
   padding: 5px 10px;
   margin: 0 5px;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 2px;
+  font-size: 14px;
+  width: 90px;
+}
+/* ================================ */
+.CatHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 5px 20px;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  margin-bottom: 15px;
+
+}
+
+.addButton {
+  background-color: #1A353D;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  margin-left: auto;
+  margin-right: 0;
   font-size: 1rem;
+  border-radius: 3px;
 }
-
 .editButton {
-  background-color: #4CAF50;
+  background-color: #065c1a;
   color: white;
 }
-
-.editButton:hover {
-  background-color: #45a049;
-}
-
 .deleteButton {
-  background-color: #f44336;
+  background-color: #cc0a1e;
   color: white;
 }
+.cancleButton,
+.submitButton{
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 14px;
+}
 
-.deleteButton:hover {
-  background-color: #e53935;
+.cancleButton{
+  background-color: #1A353D;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  font-size: 14px;
+}
+.submitButton{
+  background-color: #15688c;
+  color: #fff;
+}
+.entCate{
+  padding: 10px 0;
+  color: #333;
+}
+.modalCont{
+  margin-top: 8%;
+ 
 }
