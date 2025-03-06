@@ -23,4 +23,13 @@
     background-color: #121212;
     color: white;
   }
+
+  .LandingContainer {
+    background-color: white; /* Default light mode */
+    transition: background-color 0.3s ease;
+  }
+  
+  .LandingContainer.dark {
+    background-color: white !important; /* Force white background in dark mode */
+  }
   

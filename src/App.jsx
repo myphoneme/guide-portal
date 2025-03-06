@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AppLayout from './ui/AppLayout';
-import { useState , useEffect } from 'react';
+import { useState , useEffect ,useContext} from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -17,7 +17,7 @@ import EditBlog from './EditBlog/EditBlog';
 import CreateBlog from './CreateBlog/CreateBlog';
 import AboutPage from './About/AboutPage';
 import TextEditor from './TextEditor/TextEditor';
-import { ThemeContext } from './Context/ThemeContext';
+import { ThemeContext ,ThemeProvider } from './Context/ThemeContext';
 import CategoriesList from './CategoriesList/CategoriesList';
 import EditProfile from './EditProfile/EditProfile';
 import CreatingBlog from './CreateBlog/CreatingBlog';
@@ -103,20 +103,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
-
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-    document.body.className = theme; 
-  }, [theme]);
-
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <div className={`${theme} min-h-screen ${theme === 'dark' ? 'bg-[#121212] text-white' : 'bg-white text-black'}`}>
-        <RouterProvider router={router} />
-      </div>
-    </ThemeContext.Provider>
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 }
+
 
 export default App;

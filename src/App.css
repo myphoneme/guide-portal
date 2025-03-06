@@ -19,12 +19,12 @@ body.dark {
 
 body.dark .navbar {
   background-color: #222 !important;
-  color: #fff!important;
+  color: #fff !important;
 }
 
 body.light .navbar {
   background-color: white !important;
-  color: #000!important;
+  color: #000 !important;
 }
 
 
@@ -39,5 +39,31 @@ body.light .navbar {
 
 .profile-toggle::after {
   display: none !important;
+}
+
+/* Ensure Navbar Links are visible */
+body.dark .nav-link,
+body.dark .NavLinks {
+  color: white !important;
+}
+
+body.light .nav-link,
+body.light .NavLinks {
+  color: black !important;
+}
+
+.LandingContainer {
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Dark Mode */
+body.dark .LandingContainer {
+  background-color: #222 !important;
+  color: white !important;
+}
+
+body.light .LandingContainer {
+  background-color: white !important;
+  color: black !important;
 }
 

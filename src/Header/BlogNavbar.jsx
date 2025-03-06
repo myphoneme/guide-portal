@@ -15,18 +15,23 @@ const BlogNavbar = () => {
     console.log("Theme:", theme); // Logs every time theme changes
   }, [theme]);
 
+ 
+
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
+  
+
 
   const [isOpen, setIsOpen] = useState(false);
-  const[showLogin, setShowLogin] = useState(false);         
+  const[showLogin, setShowLogin] = useState(false);           
 
   const handleShow = () => setShowLogin(true);
   const handleClose = () => setShowLogin(false);
 
   return (
-    <Navbar expand="lg" className={styles.LandingContainer}>
+    <Navbar expand="lg" className={`${styles.LandingContainer} ${theme === "dark" ? "dark" : ""}`}>
+
       <Container>
         <Navbar.Brand href="#" className="fw-bold">Web-blog</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -44,21 +49,14 @@ const BlogNavbar = () => {
             <Nav.Link href="#" onClick={handleShow} className={styles.NavLinks}>Login</Nav.Link>
            
             {/* Theme Toggle Button */}
-            <div>
+            <div onClick={toggleTheme} style={{ cursor: "pointer" }}>
               {theme === "light" ? (
-                <IoMoon
-                  size={30}
-                  className="bg-light text-dark p-2 rounded-circle cursor-pointer"
-                  onClick={toggleTheme}
-                />
+                <IoMoon size={30} className="text-dark" />
               ) : (
-                <HiSun
-                  size={30}
-                  className="bg-dark text-white p-2 rounded-circle cursor-pointer"
-                  onClick={toggleTheme}
-                />
+                <HiSun size={30} className="text-white" />
               )}
             </div>
+
 
             <Dropdown className="profile-dropdown">
               <Dropdown.Toggle as="div" id="profile-dropdown"    className="profile-toggle">
