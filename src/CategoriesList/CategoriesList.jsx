@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from "react";
 import styles from "./CategoriesList.module.css"; 
-import { Button, Modal, InputGroup, Form } from "react-bootstrap";
+import { Button, Modal, InputGroup, Form, } from "react-bootstrap";
 
 const CategoriesList = () => {
   const [categories, setCategories] = useState([]);
@@ -10,8 +11,10 @@ const CategoriesList = () => {
     id: null, 
   });
   const [show, setShow] = useState(false);
+  const [catShow,setCatShow] = useState(false);
 
   const handleClose = () => setShow(false);
+  const handleCatClose = ()=> setCatShow(false);
   const handleShow = (category = null) => {
     if (category) {
       setFormData({ category_name: category.category_name, id: category.id });
@@ -92,7 +95,11 @@ const CategoriesList = () => {
     }
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (id=null) => {
+      // alert(catShow);
+      setCatShow(true);
+      // alert(catShow);
+    
     fetch(`http://fastapi.phoneme.in/categories/${id}`, {
       method: "DELETE",
     })
@@ -140,12 +147,7 @@ const CategoriesList = () => {
                       >
                         Edit
                       </button>
-                      <button
-                        className={styles.deleteButton}
-                        onClick={() => handleDelete(category.id)}
-                      >
-                        Delete
-                      </button>
+                      <button className={styles.deleteButton} onClick={() => handleDelete(category.id)}> Delete </button>
                     </td>
                   </tr>
                 ))
@@ -183,6 +185,37 @@ const CategoriesList = () => {
           </button>
         </Modal.Footer>
       </Modal>
+
+      {/* =======================delete=============== */}
+      <Modal  show={catShow} onHide={handleCatClose} >
+
+      <Modal.Header closeButton>
+          <h6>{formData.id ? "Delete Category" : "Delete Category"}</h6>
+        </Modal.Header>
+          <div className={styles.modal}>
+            <div className={styles.modalHeader}></div>
+            <Modal.Body>
+              <div className={styles.modalBody}>
+                  <div className={styles.warningIcon}>⚠</div>
+                  <h3>Are you sure you want to delete this tenant?</h3>
+                  <p>
+                  Deleting a tenant will permanently remove it from your map and
+                  network. This cannot be undone.
+                  </p>
+              </div>
+            </Modal.Body>
+      <Modal.Footer>
+        <div className={styles.modalFooter}>
+            <button className={styles.cancelBtn} >
+            cancel
+            </button>
+            <button className={styles.deleteBtn} >
+            Delete 
+            </button>
+        </div>
+      </Modal.Footer>
+    </div>
+    </Modal>
     </div>
   );
 };

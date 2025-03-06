@@ -103,3 +103,89 @@
   margin-top: 8%;
  
 }
+.flashMessage {
+  /* background-color: #4caf50; 
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold; */
+  background-color: #f1f1f1;
+  padding: 50px;
+  color: #000;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  border-top: 10px solid red;
+}
+
+.flashMessageError {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+/* ===delete=== */
+.modal {
+  /* background: white; */
+  width: 400px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: auto;
+ 
+}
+
+.modalHeader {
+  background: #d32f2f;
+  height: 10px;
+  /* border-top-left-radius: 5px;
+  border-top-right-radius: 5px; */
+}
+
+.modalBody {
+  padding: 20px;
+}
+
+.modalBody h3 {
+  color: #333;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.modalBody p {
+  color: #555;
+  font-size: 14px;
+}
+
+.warningIcon {
+  font-size: 40px;
+  color: #d32f2f;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+ 
+}
+
+.cancelBtn {
+  background: white;
+  color: #1976d2;
+  border: 1px solid #1976d2;
+  padding: 5px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.deleteBtn {
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 5px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0 10px;
+}

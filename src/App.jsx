@@ -22,6 +22,7 @@ import CategoriesList from './CategoriesList/CategoriesList';
 import EditProfile from './EditProfile/EditProfile';
 import CreatingBlog from './CreateBlog/CreatingBlog';
 
+
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
@@ -98,6 +99,7 @@ const router = createBrowserRouter([
         path: '/write',
         element: <CreatingBlog />,
       },
+     
     ],
   },
 ]);
