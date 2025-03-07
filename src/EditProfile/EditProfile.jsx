@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import styles from "./EditProfile.module.css";
 
-export default function EditProfile() {
+export default function EditProfile({ show, handleClose }) {
   const [profile, setProfile] = useState({
     name: "",
     email: "",
@@ -70,78 +70,83 @@ export default function EditProfile() {
   const handleSubmit = () => {
     localStorage.setItem("userProfile", JSON.stringify(profile));
     alert("Profile updated successfully!");
+    handleClose(); // Close the modal
     navigate("/");
   };
 
   return (
-    <div className={styles.fullScreenContainer}>
-      <h2 className={styles.profileTitle}>Edit Profile</h2>
-      {error && <Alert variant="danger">{error}</Alert>}
-      {success && <Alert variant="success">{success}</Alert>}
-      
-      <div className={styles.photoContainer}>
-        {profile.photo ? (
-          <img src={profile.photo} alt="Profile" className={styles.profilePhoto} />
-        ) : (
-          <div className={styles.photoPlaceholder}>No Photo</div>
-        )}
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>Upload Photo</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handlePhotoChange} />
-        </Form.Group>
-      </div>
+    <Modal show={show} onHide={handleClose} centered>
+      <Modal.Header closeButton>
+        <Modal.Title>Edit Profile</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {error && <Alert variant="danger">{error}</Alert>}
+        {success && <Alert variant="success">{success}</Alert>}
+        
+        <div className={styles.photoContainer}>
+          {profile.photo ? (
+            <img src={profile.photo} alt="Profile" className={styles.profilePhoto} />
+          ) : (
+            <div className={styles.photoPlaceholder}>No Photo</div>
+          )}
+          <Form.Group className={styles.formGroup}>
+            <Form.Label>Upload Photo</Form.Label>
+            <Form.Control type="file" accept="image/*" onChange={handlePhotoChange} />
+          </Form.Group>
+        </div>
 
-      <Form className={styles.fullScreenForm}>
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>Name</Form.Label>
-          <Form.Control 
-            type="text" 
-            name="name" 
-            placeholder="Enter name" 
-            value={profile.name} 
-            onChange={handleChange} 
-          />
-        </Form.Group>
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>Email</Form.Label>
-          <Form.Control 
-            type="email" 
-            name="email" 
-            placeholder="Enter email" 
-            value={profile.email} 
-            onChange={handleChange} 
-          />
-        </Form.Group>
+        <Form className={styles.fullScreenForm}>
+          <Form.Group className={styles.formGroup}>
+            <Form.Label>Name</Form.Label>
+            <Form.Control 
+              type="text" 
+              name="name" 
+              placeholder="Enter name" 
+              value={profile.name} 
+              onChange={handleChange} 
+            />
+          </Form.Group>
+          <Form.Group className={styles.formGroup}>
+            <Form.Label>Email</Form.Label>
+            <Form.Control 
+              type="email" 
+              name="email" 
+              placeholder="Enter email" 
+              value={profile.email} 
+              onChange={handleChange} 
+            />
+          </Form.Group>
 
-        {/* Password Change Section */}
-        <h4 className="mt-4">Change Password</h4>
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>Old Password</Form.Label>
-          <Form.Control 
-            type="password" 
-            placeholder="Enter old password" 
-            value={oldPassword} 
-            onChange={(e) => setOldPassword(e.target.value)} 
-          />
-        </Form.Group>
-        <Form.Group className={styles.formGroup}>
-          <Form.Label>New Password</Form.Label>
-          <Form.Control 
-            type="password" 
-            placeholder="Enter new password" 
-            value={newPassword} 
-            onChange={(e) => setNewPassword(e.target.value)} 
-          />
-        </Form.Group>
-        <Button variant="warning" onClick={handlePasswordChange} className={styles.saveButton}>
-          Change Password
-        </Button>
+          {/* Password Change Section */}
+          <h4 className="mt-4">Change Password</h4>
+          <Form.Group className={styles.formGroup}>
+            <Form.Label>Old Password</Form.Label>
+            <Form.Control 
+              type="password" 
+              placeholder="Enter old password" 
+              value={oldPassword} 
+              onChange={(e) => setOldPassword(e.target.value)} 
+            />
+          </Form.Group>
+          <Form.Group className={styles.formGroup}>
+            <Form.Label>New Password</Form.Label>
+            <Form.Control 
+              type="password" 
+              placeholder="Enter new password" 
+              value={newPassword} 
+              onChange={(e) => setNewPassword(e.target.value)} 
+            />
+          </Form.Group>
+          <Button variant="warning" onClick={handlePasswordChange} className={styles.saveButton}>
+            Change Password
+          </Button>
 
-        {/* Save Profile Button */}
-        <Button variant="primary" onClick={handleSubmit} className={styles.saveButton}>
-          Save Profile
-        </Button>
-      </Form>
-    </div>
+          {/* Save Profile Button */}
+          <Button variant="primary" onClick={handleSubmit} className={styles.saveButton}>
+            Save Profile
+          </Button>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 }

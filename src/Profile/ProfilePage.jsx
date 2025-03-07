@@ -1,20 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Container, Row, Col, Nav, Button } from "react-bootstrap";
 import styles from "./ProfilePage.module.css";
-import { Container, Row, Col, Nav } from "react-bootstrap";
+import EditProfile from "../EditProfile/EditProfile";
+import { Link } from 'react-router-dom';
+
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
     name: "User",
     photo: "",
   });
-
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     const savedProfile = JSON.parse(localStorage.getItem("userProfile"));
     if (savedProfile) {
       setProfile(savedProfile);
     }
   }, []);
+
+  const handleShow = () => setShowModal(true); // Show modal
+  const handleClose = () => setShowModal(false); // Close modal
+
+
+  useEffect(() => {
+    fetchPosts();
+}, []);
+
+const fetchPosts = () => {
+    fetch("http://fastapi.phoneme.in/posts")
+        .then(response => response.json())
+        .then(data => {
+            setPosts(data);
+        })
+        .catch(error => {
+            console.error("Error fetching posts:", error);
+        });
+};
 
   return (
     <Container className={styles.profilePage}>
@@ -27,69 +49,30 @@ const ProfilePage = () => {
             <Nav.Item>Your Blogs</Nav.Item>
           </Nav>
 
-          {/* Sample Blog Card (Repeat as needed) */}
-          <div className={styles.projectCard}>
-            <h4 className={styles.projectTitle}>Template Project</h4>
+          {/* Sample Blog Card (Dummy Data) */}
+         { posts.map(post => (
+           <div className={styles.projectCard}>
+            <h4 className={styles.projectTitle}>{post.title}</h4>
             <div className={styles.blogCon}>
               <p>
-                Originally a premium product priced at $119+, made available for
-                free in January 2025...Originally a premium product priced at $119+, made available for free in January 2025   Originally a premium product priced at $119+, made available for free i
+                {post.post.substring(0, 200)}...
               </p>
               <img
-                src="https://thumbs.dreamstime.com/b/group-successful-business-people-meeting-office-sharing-their-ideas-multiethnic-273115987.jpg"
+                src={`http://fastapi.phoneme.in/${post.image}`}
                 alt="Blog"
                 className={styles.blogImg}
               />
             </div>
-            <span className={styles.date}>Feb 5</span>
-          </div>
-          <div className={styles.projectCard}>
-            <h4 className={styles.projectTitle}>Template Project</h4>
-            <div  className={styles.blogCon}>
-                <p>
-                Originally a premium product priced at $119+, made available for free in January 2025   Originally a premium product priced at $119+, made available for free in January   Originally a premium product priced at $119+, made available for free in January   Originally a premium product at $119+, made available for free in January!
-                </p>
-                <img
-                src="https://leadchangegroup.com/wp-content/uploads/2019/03/DDS-LCG-March.jpg"
-                alt="Profile"
-                className={styles.blogImg}
-                />
-            </div>
-            <span className={styles.date}>Feb 5</span>
-            {/* <ThreeDots className={styles.icon} /> */}
-          </div>
+            <div className= {styles.Readcont}>
+            <span className={styles.date}>Created on : {post.created_at.split('T')[0]}</span>
 
-          <div className={styles.projectCard}>
-            <h4 className={styles.projectTitle}>Template Project</h4>
-            <div  className={styles.blogCon}>
-                <p>
-                Originally a premium product priced at $119+, made available for free in January 2025   Originally a premium product priced at $119+, made available for free in January   Originally a premium product priced at $119+, made available for free in January   Originally a premium product at $119+, made available for free in January!
-                </p>
-                <img
-                src="https://leadchangegroup.com/wp-content/uploads/2019/03/DDS-LCG-March.jpg"
-                alt="Profile"
-                className={styles.blogImg}
-                />
+            <Link to={`/blog/${post.id}`} className= {styles.Readmorecon}>
+            Read More
+            </Link>
             </div>
-            <span className={styles.date}>Feb 5</span>
-            {/* <ThreeDots className={styles.icon} /> */}
           </div>
-          <div className={styles.projectCard}>
-            <h4 className={styles.projectTitle}>Template Project</h4>
-            <div  className={styles.blogCon}>
-                <p>
-                Originally a premium product priced at $119+, made available for free in January 2025   Originally a premium product priced at $119+, made available for free in January   Originally a premium product priced at $119+, made available for free in January   Originally a premium product at $119+, made available for free in January!
-                </p>
-                <img
-                src="https://leadchangegroup.com/wp-content/uploads/2019/03/DDS-LCG-March.jpg"
-                alt="Profile"
-                className={styles.blogImg}
-                />
-            </div>
-            <span className={styles.date}>Feb 5</span>
-            {/* <ThreeDots className={styles.icon} /> */}
-          </div>
-
+          ))}
+          
         </Col>
 
         {/* Right Section */}
@@ -101,12 +84,15 @@ const ProfilePage = () => {
               className={styles.profileImage}
             />
             <p className={styles.profileName}>{profile.name}</p>
-            <Link to="/edit-profile" className={styles.editProfile}>
-              Edit profile
-            </Link>
+            <Button variant="success" onClick={handleShow}>
+              Edit Profile
+            </Button>
           </div>
         </Col>
       </Row>
+
+      {/* Edit Profile Modal */}
+      <EditProfile show={showModal} handleClose={handleClose} />
     </Container>
   );
 };
