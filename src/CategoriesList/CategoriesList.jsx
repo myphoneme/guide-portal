@@ -198,10 +198,10 @@ const CategoriesList = () => {
               <div className={styles.modalBody}>
                   <div className={styles.warningIcon}>⚠</div>
                   <h3>Are you sure you want to delete this tenant?</h3>
-                  <p>
+                  {/* <p>
                   Deleting a tenant will permanently remove it from your map and
                   network. This cannot be undone.
-                  </p>
+                  </p> */}
               </div>
             </Modal.Body>
       <Modal.Footer>

@@ -13,7 +13,6 @@
 }
 .table {
   width: 100%;
-  
 }
 .table th,
 .table td {
@@ -103,58 +102,25 @@
   margin-top: 8%;
  
 }
-.flashMessage {
-  /* background-color: #4caf50; 
-  color: white;
-  padding: 10px;
-  margin-top: 10px;
-  text-align: center;
-  border-radius: 5px;
-  font-weight: bold; */
-  background-color: #f1f1f1;
-  padding: 50px;
-  color: #000;
-  width: 300px;
-  margin: auto;
-  text-align: center;
-  border-top: 10px solid red;
-}
-
-.flashMessageError {
-  background-color: #f44336; /* Red */
-  color: white;
-}
 /* ===delete=== */
 .modal {
-  /* background: white; */
   width: 400px;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin: auto;
- 
 }
 
 .modalHeader {
-  background: #d32f2f;
-  height: 10px;
-  /* border-top-left-radius: 5px;
-  border-top-right-radius: 5px; */
-}
-
-.modalBody {
-  padding: 20px;
+ 
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-top: 3px;
 }
 
 .modalBody h3 {
   color: #333;
   font-size: 18px;
-  margin: 10px 0;
-}
-
-.modalBody p {
-  color: #555;
-  font-size: 14px;
 }
 
 .warningIcon {
@@ -165,8 +131,7 @@
 .modalFooter {
   display: flex;
   justify-content: space-around;
-  padding: 10px;
- 
+  
 }
 
 .cancelBtn {

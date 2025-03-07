@@ -3,10 +3,8 @@ import { Modal, Button, Form, Card, Container, Spinner, Alert } from "react-boot
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const DynamicModalLoginForm = ({showLogin , handleClose , handleShow}) => {
-  // const [showLoginModal, setShowLoginModal] = useState(false);
+const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
   const [showSignupModal, setShowSignupModal] = useState(false);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signupName, setSignupName] = useState("");
@@ -16,28 +14,25 @@ const DynamicModalLoginForm = ({showLogin , handleClose , handleShow}) => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-
-
-  // Handlers for Login Modal
-  // const handleLoginClose = () => setShowLoginModal(false);
-  // const handleLoginShow = () => setShowLoginModal(true);
-
   // Handlers for Signup Modal
   const handleSignupClose = () => setShowSignupModal(false);
   const handleSignupShow = () => setShowSignupModal(true);
 
-  // Handle Login Submission
+  // Handle Login Submission with Local Storage Check
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
+
     setTimeout(() => {
       setLoading(false);
-      if (email && password) {
+      const savedProfile = JSON.parse(localStorage.getItem("userProfile"));
+
+      if (savedProfile && savedProfile.email === email && savedProfile.password === password) {
         navigate("/home");
         handleClose();
       } else {
-        setError("Please enter both email and password.");
+        setError("Invalid email or password.");
       }
     }, 1500);
   };
@@ -45,10 +40,19 @@ const DynamicModalLoginForm = ({showLogin , handleClose , handleShow}) => {
   // Handle Signup Submission
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     setLoading(true);
+
     setTimeout(() => {
       setLoading(false);
       if (signupName && signupEmail && signupPassword) {
+        const newUser = {
+          name: signupName,
+          email: signupEmail,
+          password: signupPassword,
+          photo: "" // Default empty profile photo
+        };
+        localStorage.setItem("userProfile", JSON.stringify(newUser));
         handleSignupClose();
         handleShow();
       } else {
@@ -59,7 +63,6 @@ const DynamicModalLoginForm = ({showLogin , handleClose , handleShow}) => {
 
   return (
     <>
-
       {/* Login Modal */}
       <Modal show={showLogin} onHide={handleClose} centered>
         <Modal.Header closeButton>
@@ -101,18 +104,7 @@ const DynamicModalLoginForm = ({showLogin , handleClose , handleShow}) => {
                     </div>
                   </Form.Group>
 
-                  <div className="text-end mb-3">
-                    <a href="/" className="text-decoration-none text-primary">
-                      Forgot Password?
-                    </a>
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    className="w-100 mb-2"
-                    disabled={loading}
-                  >
+                  <Button type="submit" variant="primary" className="w-100 mb-2" disabled={loading}>
                     {loading ? <Spinner animation="border" size="sm" /> : "Login"}
                   </Button>
 
@@ -142,6 +134,7 @@ const DynamicModalLoginForm = ({showLogin , handleClose , handleShow}) => {
           <Container>
             <Card className="p-4 shadow-sm border-0">
               <Card.Body>
+                {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSignupSubmit}>
                   <Form.Group className="mb-3">
                     <div className="input-group">
@@ -188,12 +181,7 @@ const DynamicModalLoginForm = ({showLogin , handleClose , handleShow}) => {
                     </div>
                   </Form.Group>
 
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    className="w-100"
-                    disabled={loading}
-                  >
+                  <Button type="submit" variant="primary" className="w-100" disabled={loading}>
                     {loading ? <Spinner animation="border" size="sm" /> : "Sign Up"}
                   </Button>
                 </Form>

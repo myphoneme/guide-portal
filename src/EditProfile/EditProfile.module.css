@@ -19,7 +19,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    background: white;
+    padding: 20px;
   }
   
   .profilePhoto {
@@ -46,9 +48,9 @@
   
   .fullScreenForm {
     width: 800px;
-    background: white;
+    /* background: white; */
     padding: 20px;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     /* height: 100vh; */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
@@ -58,10 +60,10 @@
   }
   
   .saveButton {
-    /* width: 100%; */
-    padding: 10px;
+    padding: 4px 20px;
     font-size: 1rem;
     border-radius: 5px;
+    background-color: #1A353D;
    
   }
   /* .profileMain{
