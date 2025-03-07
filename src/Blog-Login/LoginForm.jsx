@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form, Card, Container, Spinner, Alert } from "react-bootstrap";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import styles from "./LoginForm.module.css";
 
 const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
   const [showSignupModal, setShowSignupModal] = useState(false);
@@ -38,6 +39,7 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
   };
 
   // Handle Signup Submission
+
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -66,7 +68,7 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
       {/* Login Modal */}
       <Modal show={showLogin} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title className="text-primary">We BLOG - Login</Modal.Title>
+          <Modal.Title >Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container>
@@ -88,7 +90,6 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
                       />
                     </div>
                   </Form.Group>
-
                   <Form.Group className="mb-3">
                     <div className="input-group">
                       <span className="input-group-text bg-light">
@@ -104,20 +105,10 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
                     </div>
                   </Form.Group>
 
-                  <Button type="submit" variant="primary" className="w-100 mb-2" disabled={loading}>
-                    {loading ? <Spinner animation="border" size="sm" /> : "Login"}
-                  </Button>
+                  <Button type="submit" className={styles.loginBtn} variant="success" disabled={loading}>{loading ? <Spinner animation="border" size="sm" /> : "Login"}</Button>
 
-                  <Button
-                    variant="outline-primary"
-                    className="w-100"
-                    onClick={() => {
-                      handleClose();
-                      handleSignupShow();
-                    }}
-                  >
-                    Sign up
-                  </Button>
+                  <button  className={styles.SignBtn} onClick={() => { handleClose(); handleSignupShow(); }} >Create an Account</button>
+                  
                 </Form>
               </Card.Body>
             </Card>
@@ -128,7 +119,7 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
       {/* Signup Modal */}
       <Modal show={showSignupModal} onHide={handleSignupClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title className="text-primary">We BLOG - Sign Up</Modal.Title>
+          <Modal.Title >Sign Up</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container>
@@ -181,9 +172,8 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
                     </div>
                   </Form.Group>
 
-                  <Button type="submit" variant="primary" className="w-100" disabled={loading}>
-                    {loading ? <Spinner animation="border" size="sm" /> : "Sign Up"}
-                  </Button>
+                  <Button type="submit" variant="primary" className="w-100" disabled={loading}> {loading ? <Spinner animation="border" size="sm" /> : "Sign Up"} </Button>
+
                 </Form>
               </Card.Body>
             </Card>

@@ -18,6 +18,7 @@ export default function EditProfile({ show, handleClose }) {
 
   const navigate = useNavigate();
 
+
   useEffect(() => {
     const savedProfile = JSON.parse(localStorage.getItem("userProfile"));
     if (savedProfile) {
@@ -75,7 +76,7 @@ export default function EditProfile({ show, handleClose }) {
   };
 
   return (
-    <Modal show={show} onHide={handleClose} centered>
+    <Modal show={show} onHide={handleClose} centered className={styles.propmodal}> 
       <Modal.Header closeButton>
         <Modal.Title>Edit Profile</Modal.Title>
       </Modal.Header>
@@ -94,7 +95,6 @@ export default function EditProfile({ show, handleClose }) {
             <Form.Control type="file" accept="image/*" onChange={handlePhotoChange} />
           </Form.Group>
         </div>
-
         <Form className={styles.fullScreenForm}>
           <Form.Group className={styles.formGroup}>
             <Form.Label>Name</Form.Label>
@@ -116,9 +116,6 @@ export default function EditProfile({ show, handleClose }) {
               onChange={handleChange} 
             />
           </Form.Group>
-
-          {/* Password Change Section */}
-          <h4 className="mt-4">Change Password</h4>
           <Form.Group className={styles.formGroup}>
             <Form.Label>Old Password</Form.Label>
             <Form.Control 
@@ -137,14 +134,14 @@ export default function EditProfile({ show, handleClose }) {
               onChange={(e) => setNewPassword(e.target.value)} 
             />
           </Form.Group>
-          <Button variant="warning" onClick={handlePasswordChange} className={styles.saveButton}>
+
+          <Button variant="success" onClick={handlePasswordChange} className={styles.changeButton}>
             Change Password
           </Button>
-
-          {/* Save Profile Button */}
           <Button variant="primary" onClick={handleSubmit} className={styles.saveButton}>
             Save Profile
           </Button>
+
         </Form>
       </Modal.Body>
     </Modal>

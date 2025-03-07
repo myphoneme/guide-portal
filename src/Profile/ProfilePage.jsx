@@ -55,7 +55,7 @@ const fetchPosts = () => {
             <h4 className={styles.projectTitle}>{post.title}</h4>
             <div className={styles.blogCon}>
               <p>
-                {post.post.substring(0, 200)}...
+                {post.post.substring(0, 500)}...
               </p>
               <img
                 src={`http://fastapi.phoneme.in/${post.image}`}
@@ -84,6 +84,7 @@ const fetchPosts = () => {
               className={styles.profileImage}
             />
             <p className={styles.profileName}>{profile.name}</p>
+            <span>ravi@gmail.com</span>
             <Button variant="success" onClick={handleShow}>
               Edit Profile
             </Button>
