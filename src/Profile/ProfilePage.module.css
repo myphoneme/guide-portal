@@ -49,6 +49,7 @@
     width: 80px;
     height: 80px;
     object-fit: cover;
+    margin-top: -50px;
   }
   
   .profileName {
@@ -57,7 +58,7 @@
   }
   
   .editProfile {
-    color: green;
+    /* color: green; */
     text-decoration: none;
   }
   .blogCon{
@@ -80,12 +81,18 @@
     
   }
   .profileInfo{
-    background-color: #f1f1f1;
-    padding: 50px 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    border-top: 100px solid #f0f0f0;
+    background-color: #fff!important;
+    padding: 10px 100px;
     border-radius: 2px;
-    margin-left: 100px
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
-    
+    margin-left: 250px
+  }
+  .editbutton{
+    padding: 2px 10px ;
+    font-size: 14px;
+    border-radius: 0;
+    margin-top: 5px;
   }
 
   

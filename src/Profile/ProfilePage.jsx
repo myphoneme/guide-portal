@@ -72,9 +72,7 @@ const fetchPosts = () => {
             </div>
           </div>
           ))}
-          
         </Col>
-
         {/* Right Section */}
         <Col md={3} className={styles.rightSection}>
           <div className={styles.profileInfo}>
@@ -85,16 +83,16 @@ const fetchPosts = () => {
             />
             <p className={styles.profileName}>{profile.name}</p>
             <span>ravi@gmail.com</span>
-            <Button variant="success" onClick={handleShow}>
+            <Button  onClick={handleShow} className={styles.editbutton}>
               Edit Profile
             </Button>
           </div>
         </Col>
       </Row>
-
       {/* Edit Profile Modal */}
       <EditProfile show={showModal} handleClose={handleClose} />
     </Container>
+    
   );
 };
 
