@@ -10,7 +10,7 @@ const ProfilePage = () => {
     name: "User",
     photo: "",
   });
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+  const [showModal, setShowModal] = useState(false); 
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const savedProfile = JSON.parse(localStorage.getItem("userProfile"));
@@ -19,7 +19,7 @@ const ProfilePage = () => {
     }
   }, []);
 
-  const handleShow = () => setShowModal(true); // Show modal
+  const handleShow = () => setShowModal(true); 
   const handleClose = () => setShowModal(false); // Close modal
 
 
