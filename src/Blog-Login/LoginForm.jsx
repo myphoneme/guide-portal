@@ -3,66 +3,123 @@ import { Modal, Button, Form, Card, Container, Spinner, Alert } from "react-boot
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.css";
+import { API_URL} from  "../config";
 
 const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
   const [showSignupModal, setShowSignupModal] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [signupName, setSignupName] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+ 
+  //ronik
+  const[loginData , setLoginData] = useState({  
+    
+    email:"",
+    password:""
 
+  });
+
+  const handleInputChange = (e) => {
+    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+  };
+
+// signup functionality 
+  // 
+  const handleLoginSubmit = async (e) => {
+  e.preventDefault();
+    try {
+      const response = await fetch(`${API_URL}login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          username: loginData.email,
+          password: loginData.password,
+        }),
+      })
+
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Response Data:", data);
+          if (data.access_token) {
+            localStorage.setItem("accessToken", data.access_token);
+
+            if (data.user && data.user.id) {
+              localStorage.setItem("userId", data.user.id);  // Store user ID   ronik 
+            }
+            window.location.href = "/home";
+            console.log("user id of the user is : ",data.user.id);//ronik
+          } else {
+            console.error("Token not found in response");
+          }
+        })
+        .catch((error) => {
+          console.error("Error during fetch:", error);
+        });
+    } catch (e) {
+      console.log("Something Went Wrong " + e);
+    }
+
+    console.log(loginData);
+  };
   // Handlers for Signup Modal
   const handleSignupClose = () => setShowSignupModal(false);
   const handleSignupShow = () => setShowSignupModal(true);
-
-  // Handle Login Submission with Local Storage Check
-  const handleLoginSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-
-    setTimeout(() => {
-      setLoading(false);
-      const savedProfile = JSON.parse(localStorage.getItem("userProfile"));
-
-      if (savedProfile && savedProfile.email === email && savedProfile.password === password) {
-        navigate("/home");
-        handleClose();
-      } else {
-        setError("Invalid email or password.");
-      }
-    }, 1500);
-  };
-
-  // Handle Signup Submission
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
-
-    setTimeout(() => {
-      setLoading(false);
-      if (signupName && signupEmail && signupPassword) {
-        const newUser = {
+  
+    try {
+      const response = await fetch("http://fastapi.phoneme.in/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: signupName,      
+          email: signupEmail,    
+          password: signupPassword, 
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("Response Data:", data);
+  
+      if (data.id) {  
+        localStorage.setItem("userProfile", JSON.stringify({
           name: signupName,
           email: signupEmail,
-          password: signupPassword,
-          photo: "" // Default empty profile photo
-        };
-        localStorage.setItem("userProfile", JSON.stringify(newUser));
+          id: data.id,  
+          profile_picture: data.profile_picture || "",
+        }));
+  
         handleSignupClose();
-        handleShow();
+        handleShow(); 
       } else {
-        setError("Please fill in all the fields.");
+        setError("Registration failed. Please try again.");
       }
-    }, 1500);
+    } catch (error) {
+      console.error("Error during fetch:", error);
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
-
+  
   return (
     <>
       {/* Login Modal */}
@@ -75,7 +132,7 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
             <Card className="p-4 shadow-sm border-0">
               <Card.Body>
                 {error && <Alert variant="danger">{error}</Alert>}
-                <Form onSubmit={handleLoginSubmit}>
+                <Form onSubmit={handleLoginSubmit} >
                   <Form.Group className="mb-3">
                     <div className="input-group">
                       <span className="input-group-text bg-light">
@@ -84,8 +141,9 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
                       <Form.Control
                         type="email"
                         placeholder="Email Address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={loginData.email}
+                        onChange={handleInputChange}
+                        name ="email"
                         required
                       />
                     </div>
@@ -98,8 +156,9 @@ const DynamicModalLoginForm = ({ showLogin, handleClose, handleShow }) => {
                       <Form.Control
                         type="password"
                         placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={loginData.password}
+                        onChange={handleInputChange}
+                        name ="password"
                         required
                       />
                     </div>

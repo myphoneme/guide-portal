@@ -22,6 +22,7 @@ import { ThemeContext } from './Context/ThemeContext';
 import CategoriesList from './CategoriesList/CategoriesList';
 import EditProfile from './EditProfile/EditProfile';
 import CreatingBlog from './CreateBlog/CreatingBlog';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -32,16 +33,23 @@ const router = createBrowserRouter([
         element: <BlogLanding />,
       },
       {
-        path: '/get-started',
-        element: <LoginForm />,
-      },
-      {
         path: '/login',
         element: <LoginForm />,
       },
       {
         path: '/signup',
         element: <SignupForm />,
+      },
+      {
+        path: '/about',
+        element: <AboutPage />,
+      },
+      {
+        element: <PrivateRoute/>,
+        children:[
+      {
+        path: '/get-started',
+        element: <LoginForm />,
       },
       {
         path: '/home',
@@ -66,10 +74,6 @@ const router = createBrowserRouter([
       {
         path: '/createblog',
         element: <CreateBlog />,
-      },
-      {
-        path: '/about',
-        element: <AboutPage />,
       },
       {
         path: '/blog/:id',
@@ -99,6 +103,8 @@ const router = createBrowserRouter([
         path: '/write',
         element: <CreatingBlog />,
       },
+    ],
+  },
     ],
   },
 ]);

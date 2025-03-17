@@ -3,35 +3,61 @@ import { Container, Row, Col, Nav, Button } from "react-bootstrap";
 import styles from "./ProfilePage.module.css";
 import EditProfile from "../EditProfile/EditProfile";
 import { Link } from 'react-router-dom';
+import CreateBlog from "../CreateBlog/CreateBlog";
 
 
 const ProfilePage = () => {
-  const [profile, setProfile] = useState({
-    name: "User",
-    photo: "",
-  });
+  
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
   const [posts, setPosts] = useState([]);
+  const [userId, setUserId] = useState(null);
+  const [user, setUser] = useState({ name: "User", photo: "" ,email:""});
+
   useEffect(() => {
-    const savedProfile = JSON.parse(localStorage.getItem("userProfile"));
-    if (savedProfile) {
-      setProfile(savedProfile);
-    }
-  }, []);
+    //Ronik
+        const savedUserId = localStorage.getItem("userId");
+        if (savedUserId) {
+          setUserId(savedUserId); 
+        }
+    
+    
+      }, []);
+    
+      useEffect(() => {
+        if (userId) {
+          fetchUserProfile(userId); 
+          fetchPosts(userId);
+        }
+      }, [userId]);
+    
+      const fetchUserProfile = (userId) => {
+        fetch(`http://fastapi.phoneme.in/users/${userId}`)
+          .then(response => response.json())
+          .then(data => {
+            setUser({ name: data.name, photo: data.photo , email: data.email }); 
+          })
+          .catch(error => {
+            console.error("Error fetching user profile:", error);
+          });
+      };
+    
 
   const handleShow = () => setShowModal(true); // Show modal
   const handleClose = () => setShowModal(false); // Close modal
 
 
   useEffect(() => {
-    fetchPosts();
-}, []);
+    if(userId){
+      fetchPosts(userId);
+    }
+}, [userId]);
 
-const fetchPosts = () => {
-    fetch("http://fastapi.phoneme.in/posts")
+const fetchPosts = (userId) => {
+    fetch(`http://fastapi.phoneme.in/get_posts_by_user_id/${userId}`)
         .then(response => response.json())
         .then(data => {
-            setPosts(data);
+            const userPosts = data.filter(post => post.created_by === parseInt(userId));
+            setPosts(userPosts);
         })
         .catch(error => {
             console.error("Error fetching posts:", error);
@@ -43,15 +69,16 @@ const fetchPosts = () => {
       <Row>
         {/* Left Section */}
         <Col md={9} className={styles.leftSection}>
-          <h1 className={styles.username}>{profile.name}</h1>
+          <h1 className={styles.username}>{user.name}</h1>
 
           <Nav className={styles.navLinks} activeKey="home">
             <Nav.Item>Your Blogs</Nav.Item>
           </Nav>
 
           {/* Sample Blog Card (Dummy Data) */}
-         { posts.map(post => (
-           <div className={styles.projectCard}>
+         { posts.length > 0 ? (
+          posts.map(post => (
+           <div className={styles.projectCard} key = {post.id}>
             <h4 className={styles.projectTitle}>{post.title}</h4>
             <div className={styles.blogCon}>
               <p>
@@ -71,18 +98,21 @@ const fetchPosts = () => {
             </Link>
             </div>
           </div>
-          ))}
+          ))
+        ):(
+          <p>No post Found</p>
+        )}
         </Col>
         {/* Right Section */}
         <Col md={3} className={styles.rightSection}>
           <div className={styles.profileInfo}>
             <img
-              src={profile.photo || "https://via.placeholder.com/150"}
+              src={user.photo || "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png"}
               alt="Profile"
               className={styles.profileImage}
             />
-            <p className={styles.profileName}>{profile.name}</p>
-            <span>ravi@gmail.com</span>
+            <p className={styles.profileName}>{user.name}</p>
+            <span>{user.email}</span>
             <Button  onClick={handleShow} className={styles.editbutton}>
               Edit Profile
             </Button>
@@ -90,7 +120,8 @@ const fetchPosts = () => {
         </Col>
       </Row>
       {/* Edit Profile Modal */}
-      <EditProfile show={showModal} handleClose={handleClose} />
+      <EditProfile show={showModal} handleClose={handleClose} userId= {userId}  user ={user}/>
+      <CreateBlog userId = {userId}/>
     </Container>
     
   );
