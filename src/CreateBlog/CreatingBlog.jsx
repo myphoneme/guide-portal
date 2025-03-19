@@ -10,11 +10,12 @@ const CreatingBlog = () => {
   const navigate = useNavigate(); // Initialize navigate
   const editor = useRef(null);
   const [categories, setCategories] = useState([]);
+  const savedUserId = localStorage.getItem("userId");
   const [formData, setFormData] = useState({
     title: '',
     post: '',
     category_id: '',
-    created_by: 1,
+    created_by: savedUserId,
     image: null,
   });
 

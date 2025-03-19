@@ -121,7 +121,7 @@ const fetchPosts = (userId) => {
       </Row>
       {/* Edit Profile Modal */}
       <EditProfile show={showModal} handleClose={handleClose} userId= {userId}  user ={user}/>
-      <CreateBlog userId = {userId}/>
+      
     </Container>
     
   );
