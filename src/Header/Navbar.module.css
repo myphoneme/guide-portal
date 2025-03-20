@@ -1,6 +1,10 @@
 .LandingContainer {
-    background-color:#f8f9fa;
+    background-color:#ebecec!important;
     padding: 10px;
+    /* position: fixed!important;
+    width: 100%;
+    top: 0;
+    z-index: 100; */
   }
   
   .NavLinks {
@@ -24,12 +28,12 @@
     color: white;
   }
 
-  .LandingContainer {
-    background-color: white; /* Default light mode */
+  /* .LandingContainer {
+    background-color: white; 
     transition: background-color 0.3s ease;
   }
   
   .LandingContainer.dark {
-    background-color: white !important; /* Force white background in dark mode */
+    background-color: white !important; 
   }
-  
+   */

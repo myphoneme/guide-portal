@@ -12,7 +12,7 @@ const BlogLayout = () => {
   useEffect(() => {
     fetchPosts();
   }, []);
-
+  
   useEffect(() => {
     // Filter posts by the selected category
     if (selectedCategory) {
@@ -43,6 +43,7 @@ const BlogLayout = () => {
   };
 
   return (
+    <div className={styles.mainHome}>
     <Container className="mt-4">
       <Row>
         <Col md={8}>
@@ -92,7 +93,9 @@ const BlogLayout = () => {
               </Card.Body>
             </div> */}
 
-            <div className={`${styles.sidebarCard} mt-3`}>
+
+     {/* ========category============ */}
+            {/* <div className={`${styles.sidebarCard} mt-3`}>
               <Card.Title className={styles.categHead}>Categories</Card.Title>
               <ListGroup>
                 {categories.map(category => (
@@ -106,7 +109,7 @@ const BlogLayout = () => {
                   </ListGroup.Item>
                 ))}
               </ListGroup>
-            </div>
+            </div> */}
 
             <div className={`${styles.sidebarCard} mt-3`}>
               <Card.Title className={styles.categHead}>Recent Posts</Card.Title>
@@ -128,6 +131,7 @@ const BlogLayout = () => {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 

@@ -4,4 +4,7 @@
     text-align: center;
     color: #fff;
     margin-top: 40px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }

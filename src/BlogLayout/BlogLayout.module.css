@@ -1,3 +1,14 @@
+/* .mainHome{
+  background-color: #f1f1f1;
+  
+} */
+/* .sidebarCard{
+  position: fixed;
+  top: 10%;
+  
+  
+} */
+
 .storyImageCol {
     margin-bottom: 20px;
   }
@@ -14,6 +25,7 @@
   }
   .mainTab{
     padding: 8px ;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
